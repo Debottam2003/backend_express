@@ -31,5 +31,11 @@ try {
 
 // await mkdir('./parent/child', { recursive: true });
 
+try {
+    const files = await fs.readdir('../node_fs');
+    console.log('Files in myNewFolder:', files);
+} catch (err) {
+    console.error('Error reading directory:', err);
+}
 
 

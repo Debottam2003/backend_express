@@ -9,3 +9,6 @@ This is appending in a file.
 This is appending in a file.
 This is appending in a file.
 This is appending in a file.
+This is appending in a file.
+This is appending in a file.
+This is appending in a file.
