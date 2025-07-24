@@ -1,4 +1,5 @@
 import express from 'express';
+import pool from './postgresql/db.js'
 
 const app = express();
 const port = 3333;
@@ -8,8 +9,15 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // GET method route
-app.get('/', (req, res) => {
-    res.send('GET request to the homepage');
+app.get('/', async (req, res) => {
+    // res.send('GET request to the homepage');
+    try {
+        let { rows } = await pool.query('SELECT * FROM authors');
+        res.status(200).json(rows);
+    } catch (error) {
+        console.error('Error executing query', error.stack);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
 // POST method route
