@@ -61,3 +61,5 @@ This lesson covers building a backend application using JavaScript, the Node.js 
 🟩 Core HTTP Concepts
 
     Status codes, headers — ✅ Excellent — foundational to all of web dev.
+
+🟩 Rate Limiter
