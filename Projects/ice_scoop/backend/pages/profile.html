@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css" />
+    <link rel="icon" type="image/png" href="/images/ice scoop logo.png" />
+  </head>
+  <body>
+    
+    <header>
+      <div class="logo"><h1>Ice Scoop</h1></div>
+      <nav class="main-nav">
+        <button class="Goback" onclick="Goback()">Home</button>
+        <div id="cart-div"><button id="cart" onclick="goToCart()"></button><span id="index">0</span></div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="dashboard">
+        <div id="userImg"></div>
+        <div id="userDetails">
+          <h2 id="userName"></h2>
+          <p id="userAddress">Address:</p>
+          <p id="pin_code">Pin Code:</p>
+        </div>
+        <div id="user-btn">
+          <button class="user-action" id="orders" onclick="goOrder()">Orders</button>
+          <button class="user-action" id="logout">Log Out</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="/scripts/profile.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+<body>
+    <div><h1>TODO_LIST for User <%= (locals.list) ? list[0].user_id : Empty_todo_userid%></h1></div>
+    <div class="list">
+        <form action="/add/<%= (locals.list) ? list[0].user_id : Empty_todo_userid%>" method="post">
+            <input type="text" name="job" value="" placeholder="Enter Here" required/>
+            <input type="submit" value="ADD"/>
+        </form>
+        <% let i = 1 %>
+        <% if(locals.list) {%>
+        <% if(list.length !== 0){ %>
+        <% list.forEach((item)=>{ %>
+                <div class="todo">
+                    <h4>📝(<%= i++ %>) <%= item.todo_name %></h4>
+                    <a href="/delete/<%= item.id%>" >Delete</a>
+                </div>
+        <% }) %>
+        <% } }else {%>
+            <h3>Add Some Pending Works</h3>
+        <% } %>
+        <a href="/logout" class="logout">Log Out</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.926);
+        color: rgb(158, 159, 161);
+        font-family: cursive;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    .body{
+        margin:0;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0.926);
+        color: aliceblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    input{
+        padding: 1rem;
+        margin: 5px;
+        background-color: rgba(97, 96, 96, 0.469);
+        color: aliceblue;
+        border:1px solid rgb(79, 78, 78);
+        border-radius: 5px;
+        font-family: cursive;
+        font-size: 1rem;
+    }
+    button{
+        padding: 1rem;
+        margin: 5px;
+        background-color: rgba(64, 47, 248, 0.707);
+        color: aliceblue;
+        border:2px solid rgb(0, 0, 0);
+        border-radius: 5px;
+        font-family: cursive;
+        font-size: 1rem;
+        box-shadow: 1px 1px 0.5px rgba(255, 255, 255, 0.526);
+    }
+</style>
+<body>
+    <h1>Find Capital State of a Country</h1>
+    <div class="body">
+        <input type="text" class="country"  value="INDIA" placeholder="COUNTRY" required>
+        <input type="text" class="capital" value="NEW DELHI" disabled>
+        <button class="btn">GO</button>
+    </div>
+    <script>
+     let country = document.querySelector('.country');
+     let capital = document.querySelector('.capital');
+     let btn = document.querySelector('.btn');
+     btn.addEventListener('click', async (event)=>{
+            let inputCountry = country.value;
+            event.preventDefault();
+            let api = async ()=>{
+            try{
+            let response = await fetch(`http://127.0.0.1:3003/${inputCountry}`);
+            if(!response.ok){ throw new Error('Network response was not ok'); }
+            let data = await response.json();
+            country.value = data.country;
+            capital.value = data.capital;
+            console.log(data.country,data.capital);
+            }
+            catch(error){
+                console.error('Fetch error:', error);
+                capital.value = "Error fetching capital";
+            }
+            }
+            await api();
+     });
+     window.addEventListener('load',async ()=>{
+            let inputCountry = country.value;
+            event.preventDefault();
+            let api = async ()=>{
+            try{
+            let response = await fetch(`http://127.0.0.1:3003/${inputCountry.toUpperCase()}`);
+            if(!response.ok){ throw new Error('Network response was not ok'); }
+            let data = await response.json();
+            country.value = data.country;
+            capital.value = data.capital;
+            console.log(data.country,data.capital);
+            }
+            catch(error){
+                console.error('Fetch error:', error);
+                capital.value = "Error fetching capital";
+            }
+            }
+            await api();
+        });
+    </script>
+</body>
+</html>

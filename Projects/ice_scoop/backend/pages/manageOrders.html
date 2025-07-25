@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/ice scoop logo.png">
+    <link rel="stylesheet" href="/stylesheets/manageOrders.css">
+    <title>Manage Orders</title>
+</head>
+<body>
+    <button class="back" onclick=goAdmin()>Go back</button>
+    <div id="floating-details">
+        <div>
+        <div><button type="button" id="close">X</button></div>
+        <div id="heading">Order Details</div>
+        <div id="display-order-detail"></div>
+        </div>
+    </div>
+    <div class="orders-container">
+        <table id="ordersTable">
+                <tr>
+                    <th>Order ID</th>
+                    <th>User ID</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Payment Status</th>
+                    <th>Details</th>
+                    <!-- <th>Modify</th> -->
+                </tr>
+
+                <!-- <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>2024-06-01</td>
+                    <td>12:40:56</td>
+                    <td>pending</td>
+                    <td><button type="button">Details</button></td>
+                    <td><button type="button">Mark Paid</button></td>
+                </tr> -->
+
+        </table>
+    </div>
+    <script src="/scripts/manageOrders.js"></script>
+</body>
+</html>

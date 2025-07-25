@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
+     "dev": "node deb_tube.js"
+=======
+     "start": "nodemon deb_tube.js"
+>>>>>>> 408c1dd19aec000ab17ffae44b2283fc2d09b8da
+  },
+  "keywords": [],
+  "author": "Debottam Kar",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.7.2",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.7"
+  },
+  "type":"commonjs"
+}

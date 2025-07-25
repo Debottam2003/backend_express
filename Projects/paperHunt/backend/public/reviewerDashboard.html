@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap">
+    <link rel = 'icon' href="./images/logo.png">
+    <title>Reviewer</title>
+  </head>
+  <body>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        html, body {
+          margin: 0;
+          padding: 0;
+          overflow: auto;
+          height: 100%;
+          font-family: 'Inter', Arial, sans-serif;
+        }
+        .review-form {
+          max-height: 90vh;
+          overflow-y: auto;
+        }
+        body {
+        display: flex;
+        gap: 2rem;
+        justify-content: space-between;
+        background: repeating-linear-gradient(
+          180deg,
+          #fff 0px,
+          #fff 32px,
+          #c8dcfa 33px,
+          #fff 34px
+        );
+        background-size: 100% 34px;
+      }
+      #icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: rgb(53, 127, 231);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.533);
+        margin: 1rem;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #icon:hover {
+        cursor: pointer;
+      }
+      h3 {
+        display: inline;
+      }
+      #reviewer-data {
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        margin: 1rem;
+        display: none;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 2rem;
+        width: 250px;
+        background-color: rgb(255, 255, 255);
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.533);
+        border-radius: 5px;
+      }
+      .paper {
+        margin: 1rem;
+        padding: 1rem;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.533);
+        border-radius: 5px;
+      }
+      #explore-papers {
+      background-color: rgb(13, 66, 140);
+      color: white;
+      font-weight: bolder;
+      margin: 2rem;
+      height: 20px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(49, 130, 206, 0.22);
+    }
+    #explore-papers:hover {
+      cursor: pointer;
+      background-color: rgb(39, 114, 218);
+    }
+    .give-review-button, .submit-review, .delete-paper {
+      background-color: #1ab02c;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-weight: bolder;
+    }
+
+    .delete-paper {
+      background-color: rgb(176, 9, 9);
+    }
+
+    #log-out {
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      background-color: rgba(200, 5, 5, 0.766);
+      font-size: bolder;
+      font-size: 1rem;
+      border-radius: 5px;
+    }
+
+    #log-out {
+      cursor: pointer;
+    }
+
+    .review-form {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      width: 500px;
+      background: linear-gradient(135deg, #e3f0ff 0%, #f6fbff 100%);
+      padding: 1.5rem 2rem;
+      margin: 1.5rem 1rem;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(49, 130, 206, 0.18), 0 1.5px 6px rgba(0,0,0,0.08);
+      font-family: 'Inter', Arial, sans-serif;
+      transition: box-shadow 0.2s;
+    }
+    .review-form label {
+      font-weight: 600;
+      color: #0d428c;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+    .review-form textarea {
+      border: 1.5px solid #b3c6e7;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      background: #fafdff;
+      transition: border 0.2s;
+      box-shadow: 0 1px 3px rgba(49,130,206,0.04);
+    }
+    .review-form textarea:focus {
+      outline: none;
+      border: 2px solid #0d428c;
+      background: #eaf3ff;
+    }
+    .review-form input[type="range"] {
+      width: 100%;
+      margin-top: 0.3rem;
+      accent-color: #0d428c;
+      height: 4px;
+      background: #dbeafe;
+      border-radius: 2px;
+      transition: accent-color 0.2s;
+    }
+    .review-form input[type="range"]:hover {
+      accent-color: #2772da;
+    }
+    .review-form input[type="range"]::-webkit-slider-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #0d428c;
+      box-shadow: 0 2px 6px rgba(49,130,206,0.18);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .review-form input[type="range"]:focus::-webkit-slider-thumb {
+      background: #2772da;
+    }
+    .review-form input[type="range"]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #0d428c;
+      box-shadow: 0 2px 6px rgba(49,130,206,0.18);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .review-form input[type="range"]:focus::-moz-range-thumb {
+      background: #2772da;
+    }
+    .review-form input[type="range"]::-ms-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #0d428c;
+      box-shadow: 0 2px 6px rgba(49,130,206,0.18);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .review-form input[type="range"]:focus::-ms-thumb {
+      background: #2772da;
+    }
+    .review-form label[for="rating"] {
+      margin-top: 1.2rem;
+      font-size: 1.1rem;
+      color: #1a237e;
+      letter-spacing: 0.04em;
+    }
+    textarea {
+      resize: none;
+    }
+    #close-form {
+      cursor: pointer;
+      background-color: #971506ea;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 675px) {
+      body {
+        flex-direction: column;
+      }
+    }
+
+    </style>
+    <div id="profile">
+    <div id="icon"></div>
+    <div id="reviewer-data"></div>
+    </div>
+      <div id="reviewer-papers">
+      <h1>Your Assigned Papers</h1>
+    </div>
+    <div id="explore-papers">Explore New Papers</div>
+
+    <form class="review-form">
+      <label for="feedback" style="display: flex; justify-content: space-between">Feedback<button id="close-form">Close</button></label>
+      <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Write your feedback here..." required></textarea>
+      <label for="comment">Comment</label>
+      <textarea id="comment" name="comment" rows="4" cols="50" placeholder="Write your comment here..." required></textarea>
+      <label for="rating">Rating out of 5</label>
+      <label for="techinical-merit">Techinical-Merit</label>
+      <input type="range" id="techinical-merit" name="techinical-merit" min="1" max="5" value="0" required>
+      <label for="readability">Readability</label>
+      <input type="range" id="readability" name="readability" min="1" max="5" value="0" required>
+      <label for="relevance">Relevance</label>
+      <input type="range" id="relevance" name="relevance" min="1" max="5" value="0" required>
+      <label for="originality">Originality</label>
+      <input type="range" id="originality" name="originality" min="1" max="5" value="0" required>
+      <button type="submit" class="submit-review">Submit</button>
+    </form>
+
+    <script>
+
+      let email = localStorage.getItem("reviewerEmail");
+      if (!email) {
+        console.error("No reviewer email found in localStorage.");
+        // Optionally redirect to login or show an error message
+        alert("You are not logged in! Please login first");
+        window.location.href = '/';
+      }
+
+      let reviewFormToggle = false;
+      let reviewForm = document.querySelector(".review-form");
+      let reviewerDataDiv = document.getElementById("reviewer-data");
+      let btn = document.getElementById("icon");
+      
+      // Fetch reviewer data
+      async function fetchReviewerData() {
+        let response = await fetch(
+          `http://localhost:3333/api/reviewers/${email}`
+        );
+        if (!response.ok) {
+          console.error("Failed to fetch author data:", response.statusText);
+          return;
+        }
+        let data = await response.json();
+        console.log(data);
+        reviewerDataDiv.innerHTML = `
+                <div><h3>Name:</h3> ${data.message.firstname} ${data.message.lastname}</div>
+                <div><h3>Email:</h3> ${data.message.email}</div>
+                <div><h3>Affiliation:</h3> ${data.message.affiliation}</div>
+                <div><h3>Phone:</h3> ${data.message.phonenumber}</div>
+                <button id="log-out">LogOut</button>
+            `;
+        document.getElementById("icon").innerHTML = `<h1>${data.message.firstname[0].toUpperCase()}</h1>`;
+                
+      // Log Out
+      let logout = document.getElementById("log-out");
+      logout.addEventListener('click', () => {
+        let sure = confirm("Are You Sure");
+        if(sure) {
+          localStorage.removeItem('reviewerEmail');
+          window.location.href = "/";
+        }
+      });
+
+      }
+      fetchReviewerData();
+
+      let show = false;
+      btn.addEventListener("click", () => {
+        if (show === false) {
+          reviewerDataDiv.style.display = "flex";
+          show = true;
+        } else {
+          reviewerDataDiv.style.display = "none";
+          show = false;
+        }
+      });
+
+      async function fetchReviewerPapers() {
+        let response = await fetch(`http://localhost:3333/api/reviewersPapers/${email}`);
+        if (!response.ok) {
+          console.error("Failed to fetch reviewer papers:", response.statusText);
+          return;
+        }
+        if (response.status === 201) {
+          let data = await response.json();
+          if (data.message === "You have not been assigned any papers yet!") {
+          let reviewerPapersDiv = document.getElementById("reviewer-papers");
+          let msg = document.createElement("div");
+          msg.innerHTML = `<h2>${data.message}</h2>`;
+          reviewerPapersDiv.appendChild(msg);
+          return;
+        }
+        }
+        else {
+          let data = await response.json();
+
+          let reviewerPapersDiv = document.getElementById("reviewer-papers");
+
+          data.message.forEach((paper) => {
+
+            let paperDiv = document.createElement("div");
+            paperDiv.innerHTML = `
+              <h3>Title: ${paper.title.toUpperCase()}</h3>
+              <p>Abstract: ${paper.abstract}</p>
+            `;
+            let giveReviewButton = document.createElement("button");
+            giveReviewButton.innerText = "Give Review";
+            giveReviewButton.classList.add("give-review-button");
+            giveReviewButton.id = paper.paper_id;
+            paperDiv.appendChild(giveReviewButton);
+
+            // Each iteration of the loop has its own separate block scope 
+
+            let br = document.createElement("br");
+            paperDiv.appendChild(br);
+
+            
+            let deletePaper = document.createElement("button");
+            deletePaper.innerText = "Delete";
+            deletePaper.classList.add("delete-paper");
+            deletePaper.id = paper.paper_id;
+
+            paperDiv.appendChild(deletePaper);
+
+            paperDiv.classList.add("paper");
+            reviewerPapersDiv.appendChild(paperDiv);
+          });
+
+          let deletePaperButtons = document.querySelectorAll(".delete-paper");
+          deletePaperButtons.forEach((dp) => {
+            dp.addEventListener("click", async (e) => {
+              let sure = confirm("Are you sure ?");
+              if (!sure) {
+                return;
+              }
+              let paper_id = e.target.id;
+              try {
+              let response = await fetch("http://localhost:3333/api/assignPaperDelete", {
+                method: "DELETE",
+                headers: {
+                  'Content-type': "application/json"
+                },
+                body: JSON.stringify({ paper_id, reviewer_email: email })
+              });
+              if(!response.ok) {
+                throw new Error("Failed to delete paper");
+              }
+              else if(response.ok && response.status === 200) {
+                console.log("Paper deleted successfully");
+                let data = await response.json();
+                alert(data.message);
+                 let reviewerPapersDiv = document.getElementById("reviewer-papers");
+                reviewerPapersDiv.innerHTML = "<h1>Your Assigned Papers</h1>"; // Clear the existing papers
+                fetchReviewerPapers(); // Fetch papers again to update the list
+              }
+            } catch (error) {
+              console.log(error.message);
+              alert("Failed to delete paper. Please try again later.");
+              return;
+            }
+            });
+          });
+
+        // Review Form Enable and Disable 
+        let giveReviewButtons = document.querySelectorAll(".give-review-button");
+        giveReviewButtons.forEach((rv) => {
+          rv.addEventListener("click", (e) => {
+            if(reviewFormToggle === false) {
+              reviewForm.style.display = "flex";
+              reviewFormToggle = true;
+              reviewForm.id = rv.id;
+            }
+            else {
+              reviewForm.style.display = "none";
+              reviewFormToggle = false;
+            }
+          });
+        });
+        }
+      }
+      fetchReviewerPapers();
+
+      document.getElementById("explore-papers").addEventListener("click", () => {
+        window.location.href = '/papers';
+      });
+
+      // Close the form
+      document.getElementById("close-form").addEventListener("click", (e) => {
+        e.preventDefault();
+            if(reviewFormToggle === false) {
+              reviewForm.style.display = "flex";
+              reviewFormToggle = true;
+            }
+            else {
+              reviewForm.style.display = "none";
+              reviewFormToggle = false;
+            }
+      });
+
+      // Review Submit
+      reviewForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        let feedback = document.getElementById("feedback").value;
+        let comment = document.getElementById("comment").value;
+        let technical_merit = document.getElementById("techinical-merit").value;
+        let readability = document.getElementById("readability").value;
+        let relevance = document.getElementById("relevance").value;
+        let originality = document.getElementById("originality").value;
+        let response = await fetch("http://localhost:3333/api/reviewerReviewSubmit", {
+          method: "POST",
+          headers: {
+            'Content-type': "application/json"
+          },
+          body: JSON.stringify({
+            paper_id: reviewForm.id,
+            reviewer_email: email,
+            feedback,
+            comment,
+            technical_merit,
+            readability,
+            originality,
+            relevance
+          })
+        });
+
+        if(!response.ok) {
+          console.error("Failed to submit review:", response.statusText);
+          let data = await response.json();
+          alert(data.message);
+          return;
+        }
+        else {
+          let data = await response.json();
+          alert(data.message);
+          reviewForm.reset();
+        }
+
+      });
+
+    </script>
+  </body>
+</html>

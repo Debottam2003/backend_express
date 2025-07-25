@@ -1,0 +1,1358 @@
+[{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b8e"
+  },
+  "country": "AFGHANISTAN",
+  "capital": "KABUL"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b8f"
+  },
+  "country": "ALBANIA",
+  "capital": "TIRANA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b90"
+  },
+  "country": "ALGERIA",
+  "capital": "ALGIERS"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b91"
+  },
+  "country": "ANDORRA",
+  "capital": "ANDORRA LA VELLA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b92"
+  },
+  "country": "ANGOLA",
+  "capital": "LUANDA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b93"
+  },
+  "country": "ANTIGUA AND BARBUDA",
+  "capital": "ST. JOHN'S"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b94"
+  },
+  "country": "ARGENTINA",
+  "capital": "BUENOS AIRES"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b95"
+  },
+  "country": "ARMENIA",
+  "capital": "YEREVAN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b96"
+  },
+  "country": "AUSTRALIA",
+  "capital": "CANBERRA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b97"
+  },
+  "country": "AUSTRIA",
+  "capital": "VIENNA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b98"
+  },
+  "country": "AZERBAIJAN",
+  "capital": "BAKU"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b99"
+  },
+  "country": "BAHAMAS",
+  "capital": "NASSAU"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b9a"
+  },
+  "country": "BAHRAIN",
+  "capital": "MANAMA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b9b"
+  },
+  "country": "BANGLADESH",
+  "capital": "DHAKA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b9c"
+  },
+  "country": "BARBADOS",
+  "capital": "BRIDGETOWN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b9d"
+  },
+  "country": "BELARUS",
+  "capital": "MINSK"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b9e"
+  },
+  "country": "BELGIUM",
+  "capital": "BRUSSELS"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337b9f"
+  },
+  "country": "BELIZE",
+  "capital": "BELMOPAN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337ba0"
+  },
+  "country": "BENIN",
+  "capital": "PORTO-NOVO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337ba1"
+  },
+  "country": "BHUTAN",
+  "capital": "THIMPHU"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337ba2"
+  },
+  "country": "BOLIVIA",
+  "capital": "SUCRE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337ba3"
+  },
+  "country": "BOSNIA AND HERZEGOVINA",
+  "capital": "SARAJEVO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337ba4"
+  },
+  "country": "BOTSWANA",
+  "capital": "GABORONE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337ba5"
+  },
+  "country": "BRAZIL",
+  "capital": "BRASÍLIA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337ba6"
+  },
+  "country": "BRUNEI",
+  "capital": "BANDAR SERI BEGAWAN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337ba7"
+  },
+  "country": "BULGARIA",
+  "capital": "SOFIA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337ba8"
+  },
+  "country": "BURKINA FASO",
+  "capital": "OUAGADOUGOU"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337ba9"
+  },
+  "country": "BURUNDI",
+  "capital": "GITEGA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337baa"
+  },
+  "country": "CABO VERDE",
+  "capital": "PRAIA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bab"
+  },
+  "country": "CAMBODIA",
+  "capital": "PHNOM PENH"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bac"
+  },
+  "country": "CAMEROON",
+  "capital": "YAOUNDÉ"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bad"
+  },
+  "country": "CANADA",
+  "capital": "OTTAWA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bae"
+  },
+  "country": "CENTRAL AFRICAN REPUBLIC",
+  "capital": "BANGUI"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337baf"
+  },
+  "country": "CHAD",
+  "capital": "NDJAMENA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bb0"
+  },
+  "country": "CHILE",
+  "capital": "SANTIAGO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bb1"
+  },
+  "country": "CHINA",
+  "capital": "BEIJING"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bb2"
+  },
+  "country": "COLOMBIA",
+  "capital": "BOGOTÁ"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bb3"
+  },
+  "country": "COMOROS",
+  "capital": "MORONI"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bb4"
+  },
+  "country": "CONGO, DEMOCRATIC REPUBLIC OF THE",
+  "capital": "KINSHASA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bb5"
+  },
+  "country": "CONGO, REPUBLIC OF THE",
+  "capital": "BRAZZAVILLE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bb6"
+  },
+  "country": "COSTA RICA",
+  "capital": "SAN JOSÉ"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bb7"
+  },
+  "country": "CROATIA",
+  "capital": "ZAGREB"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bb8"
+  },
+  "country": "CUBA",
+  "capital": "HAVANA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bb9"
+  },
+  "country": "CYPRUS",
+  "capital": "NICOSIA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bba"
+  },
+  "country": "CZECH REPUBLIC",
+  "capital": "PRAGUE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bbb"
+  },
+  "country": "DENMARK",
+  "capital": "COPENHAGEN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bbc"
+  },
+  "country": "DJIBOUTI",
+  "capital": "DJIBOUTI"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bbd"
+  },
+  "country": "DOMINICA",
+  "capital": "ROSEAU"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bbe"
+  },
+  "country": "DOMINICAN REPUBLIC",
+  "capital": "SANTO DOMINGO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bbf"
+  },
+  "country": "ECUADOR",
+  "capital": "QUITO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bc0"
+  },
+  "country": "EGYPT",
+  "capital": "CAIRO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bc1"
+  },
+  "country": "EL SALVADOR",
+  "capital": "SAN SALVADOR"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bc2"
+  },
+  "country": "EQUATORIAL GUINEA",
+  "capital": "MALABO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bc3"
+  },
+  "country": "ERITREA",
+  "capital": "ASMARA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bc4"
+  },
+  "country": "ESTONIA",
+  "capital": "TALLINN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bc5"
+  },
+  "country": "ESWATINI",
+  "capital": "MBABANE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bc6"
+  },
+  "country": "ETHIOPIA",
+  "capital": "ADDIS ABABA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bc7"
+  },
+  "country": "FIJI",
+  "capital": "SUVA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bc8"
+  },
+  "country": "FINLAND",
+  "capital": "HELSINKI"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bc9"
+  },
+  "country": "FRANCE",
+  "capital": "PARIS"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bca"
+  },
+  "country": "GABON",
+  "capital": "LIBREVILLE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bcb"
+  },
+  "country": "GAMBIA",
+  "capital": "BANJUL"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bcc"
+  },
+  "country": "GEORGIA",
+  "capital": "TBILISI"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bcd"
+  },
+  "country": "GERMANY",
+  "capital": "BERLIN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bce"
+  },
+  "country": "GHANA",
+  "capital": "ACCRA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bcf"
+  },
+  "country": "GREECE",
+  "capital": "ATHENS"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bd0"
+  },
+  "country": "GRENADA",
+  "capital": "ST. GEORGE'S"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bd1"
+  },
+  "country": "GUATEMALA",
+  "capital": "GUATEMALA CITY"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bd2"
+  },
+  "country": "GUINEA",
+  "capital": "CONAKRY"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bd3"
+  },
+  "country": "GUINEA-BISSAU",
+  "capital": "BISSAU"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bd4"
+  },
+  "country": "GUYANA",
+  "capital": "GEORGETOWN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bd5"
+  },
+  "country": "HAITI",
+  "capital": "PORT-AU-PRINCE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bd6"
+  },
+  "country": "HONDURAS",
+  "capital": "TEGUCIGALPA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bd7"
+  },
+  "country": "HUNGARY",
+  "capital": "BUDAPEST"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bd8"
+  },
+  "country": "ICELAND",
+  "capital": "REYKJAVIK"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bd9"
+  },
+  "country": "INDIA",
+  "capital": "NEW DELHI"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bda"
+  },
+  "country": "INDONESIA",
+  "capital": "JAKARTA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bdb"
+  },
+  "country": "IRAN",
+  "capital": "TEHRAN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bdc"
+  },
+  "country": "IRAQ",
+  "capital": "BAGHDAD"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bdd"
+  },
+  "country": "IRELAND",
+  "capital": "DUBLIN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bde"
+  },
+  "country": "ISRAEL",
+  "capital": "JERUSALEM"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bdf"
+  },
+  "country": "ITALY",
+  "capital": "ROME"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337be0"
+  },
+  "country": "JAMAICA",
+  "capital": "KINGSTON"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337be1"
+  },
+  "country": "JAPAN",
+  "capital": "TOKYO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337be2"
+  },
+  "country": "JORDAN",
+  "capital": "AMMAN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337be3"
+  },
+  "country": "KAZAKHSTAN",
+  "capital": "NUR-SULTAN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337be4"
+  },
+  "country": "KENYA",
+  "capital": "NAIROBI"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337be5"
+  },
+  "country": "KIRIBATI",
+  "capital": "SOUTH TARAWA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337be6"
+  },
+  "country": "KOREA, NORTH",
+  "capital": "PYONGYANG"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337be7"
+  },
+  "country": "KOREA, SOUTH",
+  "capital": "SEOUL"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337be8"
+  },
+  "country": "KOSOVO",
+  "capital": "PRISTINA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337be9"
+  },
+  "country": "KUWAIT",
+  "capital": "KUWAIT CITY"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bea"
+  },
+  "country": "KYRGYZSTAN",
+  "capital": "BISHKEK"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337beb"
+  },
+  "country": "LAOS",
+  "capital": "VIENTIANE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bec"
+  },
+  "country": "LATVIA",
+  "capital": "RIGA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bed"
+  },
+  "country": "LEBANON",
+  "capital": "BEIRUT"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bee"
+  },
+  "country": "LESOTHO",
+  "capital": "MASERU"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bef"
+  },
+  "country": "LIBERIA",
+  "capital": "MONROVIA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bf0"
+  },
+  "country": "LIBYA",
+  "capital": "TRIPOLI"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bf1"
+  },
+  "country": "LIECHTENSTEIN",
+  "capital": "VADUZ"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bf2"
+  },
+  "country": "LITHUANIA",
+  "capital": "VILNIUS"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bf3"
+  },
+  "country": "LUXEMBOURG",
+  "capital": "LUXEMBOURG CITY"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bf4"
+  },
+  "country": "MADAGASCAR",
+  "capital": "ANTANANARIVO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bf5"
+  },
+  "country": "MALAWI",
+  "capital": "LILONGWE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bf6"
+  },
+  "country": "MALAYSIA",
+  "capital": "KUALA LUMPUR"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bf7"
+  },
+  "country": "MALDIVES",
+  "capital": "MALE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bf8"
+  },
+  "country": "MALI",
+  "capital": "BAMAKO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bf9"
+  },
+  "country": "MALTA",
+  "capital": "VALLETTA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bfa"
+  },
+  "country": "MAROCCO",
+  "capital": "RABAT"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bfb"
+  },
+  "country": "MAURITANIA",
+  "capital": "NOUAKCHOTT"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bfc"
+  },
+  "country": "MAURITIUS",
+  "capital": "PORT LOUIS"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bfd"
+  },
+  "country": "MEXICO",
+  "capital": "MEXICO CITY"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bfe"
+  },
+  "country": "MICRONESIA",
+  "capital": "PALIKIR"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337bff"
+  },
+  "country": "MOLDOVA",
+  "capital": "CHIȘINĂU"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c00"
+  },
+  "country": "MONACO",
+  "capital": "MONACO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c01"
+  },
+  "country": "MONGOLIA",
+  "capital": "ULAANBAATAR"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c02"
+  },
+  "country": "MONTENEGRO",
+  "capital": "PODGORICA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c03"
+  },
+  "country": "MOROCCO",
+  "capital": "RABAT"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c04"
+  },
+  "country": "MOZAMBIQUE",
+  "capital": "MAPUTO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c05"
+  },
+  "country": "MYANMAR",
+  "capital": "NAYPYIDAW"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c06"
+  },
+  "country": "NAMIBIA",
+  "capital": "WINDHOEK"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c07"
+  },
+  "country": "NAURU",
+  "capital": "YAREN DISTRICT"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c08"
+  },
+  "country": "NEPAL",
+  "capital": "KATHMANDU"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c09"
+  },
+  "country": "NETHERLANDS",
+  "capital": "AMSTERDAM"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c0a"
+  },
+  "country": "NEW ZEALAND",
+  "capital": "WELLINGTON"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c0b"
+  },
+  "country": "NICARAGUA",
+  "capital": "MANAGUA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c0c"
+  },
+  "country": "NIGER",
+  "capital": "NIAMEY"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c0d"
+  },
+  "country": "NIGERIA",
+  "capital": "ABUJA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c0e"
+  },
+  "country": "NORTH MACEDONIA",
+  "capital": "SKOPJE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c0f"
+  },
+  "country": "NORWAY",
+  "capital": "OSLO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c10"
+  },
+  "country": "OMAN",
+  "capital": "MUSCAT"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c11"
+  },
+  "country": "PAKISTAN",
+  "capital": "ISLAMABAD"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c12"
+  },
+  "country": "PALAU",
+  "capital": "NGERULMUD"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c13"
+  },
+  "country": "PANAMA",
+  "capital": "PANAMA CITY"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c14"
+  },
+  "country": "PAPUA NEW GUINEA",
+  "capital": "PORT MORESBY"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c15"
+  },
+  "country": "PARAGUAY",
+  "capital": "ASUNCIÓN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c16"
+  },
+  "country": "PERU",
+  "capital": "LIMA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c17"
+  },
+  "country": "PHILIPPINES",
+  "capital": "MANILA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c18"
+  },
+  "country": "POLAND",
+  "capital": "WARSAW"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c19"
+  },
+  "country": "PORTUGAL",
+  "capital": "LISBON"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c1a"
+  },
+  "country": "QATAR",
+  "capital": "DOHA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c1b"
+  },
+  "country": "ROMANIA",
+  "capital": "BUCHAREST"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c1c"
+  },
+  "country": "RUSSIA",
+  "capital": "MOSCOW"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c1d"
+  },
+  "country": "RWANDA",
+  "capital": "KIGALI"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c1e"
+  },
+  "country": "SAINT KITTS AND NEVIS",
+  "capital": "BASSETERRE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c1f"
+  },
+  "country": "SAINT LUCIA",
+  "capital": "CASTRIES"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c20"
+  },
+  "country": "SAINT VINCENT AND THE GRENADINES",
+  "capital": "KINGSTOWN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c21"
+  },
+  "country": "SAMOA",
+  "capital": "APIA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c22"
+  },
+  "country": "SAN MARINO",
+  "capital": "SAN MARINO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c23"
+  },
+  "country": "SAO TOME AND PRINCIPE",
+  "capital": "SAO TOME"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c24"
+  },
+  "country": "SAUDI ARABIA",
+  "capital": "RIYADH"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c25"
+  },
+  "country": "SENEGAL",
+  "capital": "Dakar"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c26"
+  },
+  "country": "SERBIA",
+  "capital": "BELGRADE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c27"
+  },
+  "country": "SEYCHELLES",
+  "capital": "VICTORIA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c28"
+  },
+  "country": "SIERRA LEONE",
+  "capital": "FREETOWN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c29"
+  },
+  "country": "SINGAPORE",
+  "capital": "SINGAPORE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c2a"
+  },
+  "country": "SLOVAKIA",
+  "capital": "BRATISLAVA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c2b"
+  },
+  "country": "SLOVENIA",
+  "capital": "LJUBLJANA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c2c"
+  },
+  "country": "SOLOMON ISLANDS",
+  "capital": "HONIARA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c2d"
+  },
+  "country": "SOMALIA",
+  "capital": "MOGADISHU"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c2e"
+  },
+  "country": "SOUTH AFRICA",
+  "capital": "PRETORIA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c2f"
+  },
+  "country": "SOUTH SUDAN",
+  "capital": "JUBA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c30"
+  },
+  "country": "SPAIN",
+  "capital": "MADRID"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c31"
+  },
+  "country": "SRI LANKA",
+  "capital": "SRI JAYAWARDENEPURA KOTTE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c32"
+  },
+  "country": "SUDAN",
+  "capital": "KHARTOUM"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c33"
+  },
+  "country": "SURINAME",
+  "capital": "PARAMARIBO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c34"
+  },
+  "country": "SWEDEN",
+  "capital": "STOCKHOLM"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c35"
+  },
+  "country": "SWITZERLAND",
+  "capital": "BERNE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c36"
+  },
+  "country": "SYRIA",
+  "capital": "DAMASCUS"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c37"
+  },
+  "country": "TAJIKISTAN",
+  "capital": "DUSHANBE"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c38"
+  },
+  "country": "TANZANIA",
+  "capital": "DODOMA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c39"
+  },
+  "country": "THAILAND",
+  "capital": "BANGKOK"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c3a"
+  },
+  "country": "TIMOR-LESTE",
+  "capital": "DILI"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c3b"
+  },
+  "country": "TOGO",
+  "capital": "LOMÉ"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c3c"
+  },
+  "country": "TONGA",
+  "capital": "NUKUʻALOFA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c3d"
+  },
+  "country": "TRINIDAD AND TOBAGO",
+  "capital": "PORT OF SPAIN"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c3e"
+  },
+  "country": "TUNISIA",
+  "capital": "TUNIS"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c3f"
+  },
+  "country": "TURKMENISTAN",
+  "capital": "ASHGABAT"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c40"
+  },
+  "country": "TURKEY",
+  "capital": "ANKARA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c41"
+  },
+  "country": "TUVALU",
+  "capital": "FUNAFUTI"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c42"
+  },
+  "country": "UGANDA",
+  "capital": "KAMPALA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c43"
+  },
+  "country": "UKRAINE",
+  "capital": "KYIV"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c44"
+  },
+  "country": "UNITED ARAB EMIRATES",
+  "capital": "ABU DHABI"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c45"
+  },
+  "country": "UNITED KINGDOM",
+  "capital": "LONDON"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c46"
+  },
+  "country": "UNITED STATES",
+  "capital": "WASHINGTON, D.C."
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c47"
+  },
+  "country": "URUGUAY",
+  "capital": "MONTEVIDEO"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c48"
+  },
+  "country": "UZBEKISTAN",
+  "capital": "TASHKENT"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c49"
+  },
+  "country": "VANUATU",
+  "capital": "PORT VILA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c4a"
+  },
+  "country": "VATICAN CITY",
+  "capital": "VATICAN CITY"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c4b"
+  },
+  "country": "VENEZUELA",
+  "capital": "CARACAS"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c4c"
+  },
+  "country": "VIETNAM",
+  "capital": "HANOI"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c4d"
+  },
+  "country": "YEMEN",
+  "capital": "SANAA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c4e"
+  },
+  "country": "ZAMBIA",
+  "capital": "LUSAKA"
+},
+{
+  "_id": {
+    "$oid": "66ffc8ef6cfb6afeb1337c4f"
+  },
+  "country": "ZIMBABWE",
+  "capital": "HARARE"
+}]

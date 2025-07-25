@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    body{
+        font-size: 1.2rem;
+        margin:2rem;
+        padding: 2rem;
+        background-color: black;
+        color:black;
+        font-family:Arial, Helvetica, sans-serif;
+     }
+     .home{
+          color: blue;
+          padding-bottom: 1.2rem;
+          font-family:Arial, Helvetica, sans-serif;
+     }
+     .oldnotename,.newnotename{
+        background-color: rgba(83, 83, 83, 0.841);
+        color:rgb(255, 255, 255);
+        padding: 0.5rem;
+        width: 250px;
+        font-family:Arial, Helvetica, sans-serif;
+     }
+     .note{
+        background-color: rgba(83, 82, 82, 0.841);
+        color:rgb(255, 255, 255);
+        padding: 1rem;
+        width: 95%;
+        height: 250px;
+        resize: none;
+        font-family:Arial, Helvetica, sans-serif;
+     }
+     .buttons{
+        margin-top: 1rem;
+        display: flex;
+        font-family:Arial, Helvetica, sans-serif;
+     }
+     .b1,.b2{
+        background-color: rgba(7, 7, 181, 0.906);
+        color: aliceblue;
+        font-size: 1rem;
+        font-weight: bolder;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        margin-top: 0.5rem;
+        font-family:Arial, Helvetica, sans-serif;
+     }
+     .b3{
+        background-color: rgba(231, 190, 9, 0.804);
+        color: rgb(0, 0, 0);
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        font-family:Arial, Helvetica, sans-serif;
+     }
+     h2{
+        color: aliceblue;
+        font-family:Arial, Helvetica, sans-serif;
+     }
+</style>
+<body>
+    <a href="/"><h3 class="home">Go Back To Home</h3></a>
+    <form action="/newnote/edittitle/<%= filename%>" method="post">
+        <h2>Old Title</h2><input type="text" name="oldname" class="oldnotename" placeholder="<%= filename.slice(0,filename.length - 4)%>" ><br><br>
+        <h2>New Title</h2><input type="text" name="newname" class="newnotename" required><br>
+        <button class="b1">Edit Title</button>
+    </form>
+    <form action="/newnote/editnote/<%= filename%>" method="post">
+        <textarea name="note" class="note"><%= filedata%></textarea>
+        <button class="b2" type="submit">Edit Note</button>
+    </form>
+        <div class="buttons">
+                  <form action="/newnote/deletenote/<%= filename%>"><button class="b3">Delete Note</button></form>
+        </div>
+</body>
+<script>
+   let deletenote = document.querySelector(".b3");
+   deletenote.addEventListener('click', (e) => {
+       // Prevent default action of the button
+       e.preventDefault();
+       console.log("stopped");
+       // Confirm dialog
+       if (confirm("Are you sure you want to delete this Note?")) {
+           // If the user clicks "OK", submit the form
+           deletenote.closest('form').submit();
+       }
+   });
+</script>
+
+</html>

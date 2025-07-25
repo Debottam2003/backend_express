@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/items.css">
+    <link rel="icon" type="image/png" href="/images/ice scoop logo.png"/>
+    <title>Our Flavours</title>
+  </head>
+
+  <body>
+    
+    <header>
+    <div class="logo"><h1>Ice Scoop</h1></div>
+    <nav class="main-nav">
+      <div class="nav-container">
+        <div class="search-container">
+          <div class="search-box">
+            <input type="text" name="search" id="sb" placeholder="Search my flavors...">
+            <button type="button" id="search-btn" onclick="search()"><img src="/images/search.ico" alt="search icon" id="search-icon"></button>
+          </div>
+          <button class="Goback" onclick="Goback()">Home</button>
+          <div id="cart-div"><button id="cart" onclick="goToCart()"></button><span id="index">0</span></div>
+      </div>
+    </nav>
+  </header>
+<!-- background animation -->
+ <div class="animated-bg"></div>
+  <!-- Choice before Add to cart  -->
+    <div id="choice">
+      <img id="choice-img" src="/images/Black_Forest_Sundae.png" />
+      <div id="choice-area">
+        <h2 id="choice-name"></h2>
+        <div id="choice-description">	A refreshing mix of fresh fruits and crunchy nuts for a balanced, wholesome sundae.</div>
+        <div id="choice-select">
+          <div id="choice-radio">
+            <div><input type="radio" name="quality" value="Regular" />Regular: &#8377; <span id="regular">100</span> </div>
+            <div><input type="radio" name="quality" value="Standard" />Standard: &#8377; <span id="standard">100</span> </div>
+            <div><input type="radio" name="quality" value="Premium" />Premium: &#8377; <span id="premium">100</span> </div>
+          </div>
+          <div id="quantity">
+            <button id="decrease">-</button>
+            <div id="total-no">1</div>
+            <button id="increase">+</button>
+          </div>
+          <button id="choice-add" onclick="cartADD()">Add Cart</button>
+        </div>
+      </div>
+      <button id="close" onclick="choiceClose()">X</button>
+    </div>
+
+    <div id="items-container">
+
+    <!--card 1-->
+    <!-- <div class="card"> 
+        <div class="card-details">
+          <p class="text-title">Card title</p>
+          <p class="text-body">Here are the details of the card</p>
+        </div>
+        <button class="card-button">Add To Cart</button>
+    </div> -->
+    
+    </div>
+    <button onclick="scrollToTop()" id="scrollBtn" title="Go to top" type="button">⇧</button>
+
+    <footer>
+    &copy; 2025 IceScoop Parlor. All rights reserved.
+    <p>
+    Authors: debottamkar2003@gmail.com, samratkarmakarnaihati@gmail.com, mondalgaganandra@gmail.com
+    </p>
+  </footer>
+    <script src="/scripts/items.js"></script>
+  </body>
+</html>

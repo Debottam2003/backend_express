@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+     body{
+        font-size: 1.2rem;
+        margin:2rem;
+        padding-top: 2rem;
+        font-family:Arial, Helvetica, sans-serif;
+     }
+     .link,.filedata{
+        padding: 2rem;
+     }
+     p{
+        padding-bottom: 1rem;
+        font-size: 2rem;
+        font-family:Arial, Helvetica, sans-serif;
+     }
+     .content{
+        width: 1000px;
+        height: 500px;
+        resize: none;
+        outline: none;
+        border: none;
+        font-size: 1.5rem;
+        font-family:Arial, Helvetica, sans-serif;
+     }
+     .nc{
+        font-size: 2rem;
+        font-family:Arial, Helvetica, sans-serif;
+     }
+</style>
+<body>
+    <a href="/" class="link text-blue-600">Go Back To Home</a>
+    <div class="filedata">
+        <p>Title: <%= filename.slice(0,filename.length - 4)%></p>
+       <p class="nc">Note Content:</p><textarea class="content" placeholder="<%= filedata%>" disabled></textarea>
+    </div>
+</body>
+</html>

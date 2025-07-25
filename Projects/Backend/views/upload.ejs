@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Upload</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        background-color:aliceblue;
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+    }
+    .upload_body {
+        background-color: white;
+        width: 40%;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow: hidden;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    textarea {
+        height: 80px;
+        padding: 12px;
+        resize: none;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+    .file {
+        display: none;
+    }
+    label {
+        font-size: 1.2rem;
+        color: #333;
+        cursor: pointer;
+        padding: 10px;
+        border: 2px dashed #aaa;
+        border-radius: 8px;
+        text-align: center;
+        transition: border-color 0.3s;
+    }
+    label:hover {
+        border-color: #007bff;
+    }
+    button {
+        padding: 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+<body>
+    <% if (error.length > 0) { %>
+        <div style="color: red;">
+            <%= error[0] %>
+        </div>
+    <% } %>
+    <div class="upload_body">
+        <form action="/upload/done" method="post" enctype="multipart/form-data">
+            <label for="file">⬆️ Choose a video file</label>
+            <input type="file" name="file" class="file" id="file" accept="video/*">
+            <label>Title</label>
+            <textarea class="title" placeholder="Enter video title..." name="title"></textarea>
+            <button type="submit" class="btn">Upload</button>
+        </form>
+    </div>
+</body>
+<script>
+let video = document.querySelector('.file');
+let title = document.querySelector('.title');
+let btn = document.querySelector('.btn');
+btn.addEventListener('click',(event)=>{
+    if(video.files.length === 0 || title.value.trim() === ''){
+        event.preventDefault();
+        alert('Please fill in all fields');
+    }
+    else{
+       btn.closest('form').submit();
+    }
+})
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notepad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/stylesheets/notepad.css">
+</head>
+<body>
+    <h1 class="notepad">Deb's Notepad</h1>
+    <div class="">
+        <div class="write">
+            <form action="/connect" method="post">
+                <input type="text" placeholder="Title" class="title" name="title" required><br>
+                <textarea placeholder="Take Notes" class="text" name="text"></textarea>
+                <form><button class="submit">Save Note</button></form>
+            </form>
+        </div>
+        <div class="notes">
+            <%if(folder.length > 0){%>
+            <% folder.forEach((file)=>{%>
+                <div class="task">
+                    <h3 class="savetask"><%= file.slice(0,file.length-4)%></h3>
+                    <div class="operation">
+                    <a href="/read_data/<%= file%>" class="read">View Note</a>
+                    <a href="/edit/<%= file%>" class="edit">Edit</a>
+                </div>
+                </div>
+            <%})%>
+            <%} else {%>
+                <div class="notask">No Notes Yet</div>
+            <%}%>
+        </div>
+    </div>
+</body>
+<script src="/javascripts/notepad.js"></script>
+</html>

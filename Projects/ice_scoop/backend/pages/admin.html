@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/images/ice scoop logo.png" />
+  <link rel="stylesheet" href="/stylesheets/admin.css">
+  <title>Admin Dashboard</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="/images/ice scoop logo.png" alt="Ice Scoop Logo" />
+      <h1>Admin Dashboard <br>Admin ID: <span class="admin_id"> admin_1 </span></h1>
+    </div>
+    <p class="welcome">Welcome, <span class="admin_id"> admin_1 </span> Use the options below to manage the website.<h2></h2></p>
+    <div class="grid">
+      <a href="/icescoop/admin/manageusers" class="card users">Manage Users</a>
+      <a href="/icescoop/admin/manageproducts" class="card products">Manage Products</a>
+      <a href="/icescoop/admin/manageorders" class="card orders">View Orders</a>
+      <button type="button" id="log-out-btn">Log Out</button>
+    </div>
+  </div>
+  <script src="/scripts/admin.js"></script>
+</body>
+</html>
