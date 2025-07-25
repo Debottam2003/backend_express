@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>User Data</h1>
+    <table border="1" style="padding: 1rem">
+      <thead>
+        <tr style="padding: 1rem;">
+          <th style="padding: 1rem;">Name</th>
+          <th style="padding: 1rem;">Age</th>
+          <th style="padding: 1rem;">Shopping Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(user => { %>
+        <tr style="padding: 1rem;">
+          <td style="padding: 1rem;"><%= user.username %></td>
+          <td style="padding: 1rem;"><%= user.age %></td>
+          <td style="padding: 1rem;"><%= user.shopping %></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <form action="/api/setuser" method="post">
+      <input type="text" name="username" placeholder="Enter Name" required />
+      <input type="text" name="age" placeholder="Enter Age" required />
+      <input type="number" name="shopping" placeholder="Enter Shopping Price" required />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
