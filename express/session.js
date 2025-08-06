@@ -55,14 +55,14 @@ app.listen(PORT, () => {
 // this session object is mapped to a session id and stored in memory
 // and this session object and id is added to the session store as well as the
 // request object and the if uninitialized is set to true then without adding any data
-// to the session object it will be stored in the session and send over to the client as cookie
+// to the session object it will be stored in the session and sessionID is send over to the client as cookie
 // (ex. connect.sid = "abc123")
 // but if the isuninitialized is set to false then the session object will not be stored in the session store
 // and the session id will not be sent to the client as cookie we have to add some data to the session object.
 
 // Checking part (Next time request came to the server):
 // the session id which is stored as cookie in the client is sent to the server with the request
-// and the session will middleware do the job, the session id will be checked if that is expired
+// and the session middleware will do the job, the session id will be checked if that is not expired
 // and also is there is session object against that session id is present in the session store
 // and the session object is retrived will be added to the request object as
 // req.session = SessionObjectRetrivedFromSessionStore
