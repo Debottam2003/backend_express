@@ -44,6 +44,14 @@ app.delete('/', (req, res) => {
     res.send(`DELETE request received with body: ${JSON.stringify(req.body)}`);
 });
 
+// app.get(/^\/*/, (req, res) => {
+//     res.send("this is \"the\" fallback route.");
+// });
+
+app.use((req, res) => {
+    res.send("this is the fallback route.");
+});
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
 });
