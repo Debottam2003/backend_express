@@ -6,7 +6,7 @@ async function main() {
     const ai = new GoogleGenAI({ apiKey: "AIzaSyCLferB1sy4g9fC-6UiXJjbaKzEhKDA5ZI" });
 
     const contents =
-        "biriyani food image";
+        "vscode image";
 
     // Set responseModalities to include "Image" so the model can generate  an image
     const response = await ai.models.generateContent({
