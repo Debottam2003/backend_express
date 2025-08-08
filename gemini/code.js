@@ -25,7 +25,7 @@ async function main() {
             const imageData = part.inlineData.data;
             const buffer = Buffer.from(imageData, "base64");
             fs.writeFileSync(`${Date.now()}.png`, buffer);
-            console.log("Image saved as gemini-native-image.png");
+            console.log("Image saved");
         }
     }
 }
