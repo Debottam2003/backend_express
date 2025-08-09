@@ -55,3 +55,5 @@ app.use((req, res) => {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
 });
+
+// res.send(), res.json(), res.senFile(), res.render(), res.redirect()
