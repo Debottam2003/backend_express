@@ -6,7 +6,7 @@ async function main() {
     const ai = new GoogleGenAI({ apiKey: "AIzaSyCLferB1sy4g9fC-6UiXJjbaKzEhKDA5ZI" });
 
     const contents =
-        "Give me a detailed step-by-step recipe for paneer butter masala in html format and also generate an image of it";
+        "Give me a detailed step-by-step recipe for paneer butter masala in html all text should be in html format and donot add (##, **, `` these characters in the text reponse) and also generate an image of it";
 
     // Set responseModalities to include "Image" so the model can generate  an image
     const response = await ai.models.generateContent({
@@ -21,12 +21,14 @@ async function main() {
     for (const part of response.candidates[0].content.parts) {
         // Based on the part type, either show the text or save the image
         if (part.text) {
-            recipeText = part.text.replace(/\*/g, '').replace(/#+/g, '');
+            recipeText = part.text.replace(/\*/g, '').replace(/#+\s/g, '').replace(/`/g, '');
+            // .replace(/i will generate[\s\S]*$/gi, '');
             console.log(recipeText);
         } else if (part.inlineData) {
             const imageData = part.inlineData.data;
             const buffer = Buffer.from(imageData, "base64");
-            fs.writeFileSync(`${Date.now()}.png`, buffer);
+            fs.writeFileSync(`img${Date.now()}.png`, buffer);
+            fs.writeFileSync("./recipe.txt", recipeText, "utf-8");
             console.log("Image saved");
         }
     }
