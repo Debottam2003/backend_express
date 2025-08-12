@@ -6,7 +6,7 @@ async function main() {
     const ai = new GoogleGenAI({ apiKey: "AIzaSyCLferB1sy4g9fC-6UiXJjbaKzEhKDA5ZI" });
 
     const contents =
-        "vscode image";
+        "Give me a detailed step-by-step recipe for paneer butter masala in html format and also generate an image of it";
 
     // Set responseModalities to include "Image" so the model can generate  an image
     const response = await ai.models.generateContent({
@@ -17,10 +17,12 @@ async function main() {
         },
     });
     console.log(response.candidates[0].content.parts);
+    let recipeText = "";
     for (const part of response.candidates[0].content.parts) {
         // Based on the part type, either show the text or save the image
         if (part.text) {
-            console.log(part.text);
+            recipeText = part.text.replace(/\*/g, '').replace(/#+/g, '');
+            console.log(recipeText);
         } else if (part.inlineData) {
             const imageData = part.inlineData.data;
             const buffer = Buffer.from(imageData, "base64");
