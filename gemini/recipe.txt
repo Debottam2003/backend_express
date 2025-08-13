@@ -1,0 +1,58 @@
+
+<body>
+  <h1>Chocolate Cake</h1>
+  <p>A moist and delicious chocolate cake perfect for any occasion.</p>
+
+  <h2>Ingredients:</h2>
+  <h3>For the Cake:</h3>
+  <ul>
+   <li>1 3/4 cups all-purpose flour</li>
+   <li>1 3/4 cups granulated sugar</li>
+   <li>3/4 cup unsweetened cocoa powder</li>
+   <li>1 1/2 teaspoons baking powder</li>
+   <li>1 1/2 teaspoons baking soda</li>
+   <li>1 teaspoon salt</li>
+   <li>1 cup buttermilk</li>
+   <li>1/2 cup vegetable oil</li>
+   <li>2 large eggs</li>
+   <li>2 teaspoons vanilla extract</li>
+   <li>1 cup boiling water</li>
+  </ul>
+
+  <h3>For the Frosting:</h3>
+  <ul>
+   <li>1 cup (2 sticks) unsalted butter, softened</li>
+   <li>3 cups powdered sugar</li>
+   <li>1 cup unsweetened cocoa powder</li>
+   <li>1/2 cup milk</li>
+   <li>1 teaspoon vanilla extract</li>
+  </ul>
+
+  <h2>Instructions:</h2>
+  <h3>Making the Cake:</h3>
+  <ol>
+   <li>Preheat oven to 350°F (175°C). Grease and flour two 9-inch round cake pans.</li>
+   <li>In a large bowl, whisk together the flour, sugar, cocoa powder, baking powder, baking soda, and salt.</li>
+   <li>Add the buttermilk, oil, eggs, and vanilla extract to the dry ingredients and beat with an electric mixer on medium speed for 2 minutes.</li>
+   <li>Carefully stir in the boiling water (the batter will be thin).</li>
+   <li>Pour the batter evenly into the prepared cake pans.</li>
+   <li>Bake for 30-35 minutes, or until a wooden skewer inserted into the center comes out clean.</li>
+   <li>Let the cakes cool in the pans for 10 minutes before inverting them onto a wire rack to cool completely.</li>
+  </ol>
+
+  <h3>Making the Frosting:</h3>
+  <ol>
+   <li>In a large bowl, beat the softened butter with an electric mixer until creamy.</li>
+   <li>Gradually add the powdered sugar and cocoa powder, beating on low speed until well combined.</li>
+   <li>Stir in the milk and vanilla extract. Beat on medium-high speed until the frosting is light and fluffy.</li>
+  </ol>
+
+  <h3>Assembling the Cake:</h3>
+  <ol>
+   <li>Place one cake layer on a serving plate. Spread a generous amount of frosting over the top.</li>
+   <li>Carefully place the second cake layer on top of the frosting.</li>
+   <li>Frost the top and sides of the cake with the remaining frosting.</li>
+   <li>Decorate as desired (with sprinkles, chocolate shavings, etc.).</li>
+   <li>Slice and serve.</li>
+  </ol>
+ </body>

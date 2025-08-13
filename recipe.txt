@@ -1,13 +1,3 @@
-Okay, here is the HTML recipe for paneer butter masala, and I will then generate an image of the dish.
-
- html
- <!DOCTYPE html>
- <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paneer Butter Masala Recipe</title>
- </head>
  <body>
   <h1>Paneer Butter Masala</h1>
   <p>A rich and creamy Indian curry made with paneer (Indian cheese), tomatoes, butter, and a blend of aromatic spices.</p>
@@ -66,7 +56,3 @@ Okay, here is the HTML recipe for paneer butter masala, and I will then generate
    <li>Serve hot with naan, roti, or rice.</li>
   </ol>
  </body>
- </html>
- 
-
-I will now generate an image depicting a serving bowl of delicious paneer butter masala, garnished with fresh coriander and a swirl of cream, with a side of naan bread, all presented on a rustic wooden surface with warm lighting.
