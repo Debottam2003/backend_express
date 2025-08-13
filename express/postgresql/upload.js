@@ -34,10 +34,14 @@ app.post('/upload', upload.single('file'), async (req, res) => {
                 upsert: false,
                 contentType: file.mimetype
             });
+        
+        const data2 = supabase.storage
+        .from('images')
+        .getPublicUrl(file.originalname);
 
         if (error) throw error;
 
-        res.json({ success: true, file: data });
+        res.json({ success: true, file: data2 });
     } catch (err) {
         console.error(err)
         res.status(500).json({ error: err.message });
@@ -46,10 +50,10 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 
 // If your bucket is public:
 
-app.get("/image", (req, res) => {
+app.get("/image/:name", (req, res) => {
     const { data } = supabase.storage
         .from('images')
-        .getPublicUrl('output1.png');
+        .getPublicUrl(req.params.name);
 
     console.log(data.publicUrl);
     res.redirect(data.publicUrl);

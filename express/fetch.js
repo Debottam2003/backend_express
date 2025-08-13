@@ -87,3 +87,46 @@ else {
 // // optional: release memory
 // URL.revokeObjectURL(downloadUrl);
 
+// const express = require("express");
+// const fs = require("fs");
+// const app = express();
+
+// app.get("/image-json", (req, res) => {
+//   // Load image as Buffer
+//   const imgBuffer = fs.readFileSync("myImage.png");
+
+//   // Send JSON containing the buffer
+//   res.json({
+//     message: "Here’s your image",
+//     img_buffer: imgBuffer
+//   });
+// });
+
+// app.listen(3000, () => console.log("Server running on port 3000"));
+
+// <!DOCTYPE html>
+// <html>
+// <body>
+//   <h2>Image from JSON Buffer</h2>
+//   <img id="image" alt="Loaded from API" />
+
+//   <script>
+//     fetch("http://localhost:3000/image-json")
+//       .then(res => res.json())
+//       .then(data => {
+//         // Convert array of bytes back to binary
+//         const byteArray = new Uint8Array(data.img_buffer.data);
+
+//         // Wrap in a Blob with correct MIME type
+//         const blob = new Blob([byteArray], { type: "image/png" });
+
+//         // Create an object URL for <img>
+//         const url = URL.createObjectURL(blob);
+//         document.getElementById("image").src = url;
+//       })
+//       .catch(err => console.error(err));
+//   </script>
+// </body>
+// </html>
+
+// img.src = "data:image/png;base64," + data.img_base64;

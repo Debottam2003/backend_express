@@ -64,6 +64,7 @@ async function main() {
         } else if (part.inlineData) {
             const imageData = part.inlineData.data;
             const buffer = Buffer.from(imageData, "base64");
+            // console.log(buffer.toString("base64"));
             fs.writeFileSync(`img${Date.now()}.png`, buffer);
             console.log("Image saved");
         }
