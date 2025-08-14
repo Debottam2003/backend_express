@@ -5,9 +5,10 @@ const { Pool } = pkg;
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
-    database: 'search',
+    database: 'Search',
     password: 'okudera2003',
     port: 3000,
+    max: 100
 });
 
 let { rows } = await pool.query("select * from admins limit 1");
