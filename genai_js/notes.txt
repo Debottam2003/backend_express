@@ -1,3 +1,6 @@
 This is the complete gen ai using javascript course.
 Frontend(React vite/bunjs) + Backend(nodejs/bunjs + expressjs).
 GEMINI AND GROQ free api.
+-> Better prompting
+-> RAG(Retrieval Augmented Generation)
+ 
