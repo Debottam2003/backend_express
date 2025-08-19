@@ -104,3 +104,18 @@ COMMIT;
 
 ROLLBACK; -- if needed to revert changes
 
+👉 SQL actually executes it in this logical order:
+
+FROM (including JOINs) → build the data set
+
+WHERE → filter rows (row-level conditions)
+
+GROUP BY → group remaining rows
+
+HAVING → filter groups (aggregate-level conditions)
+
+SELECT → choose what columns/aggregates to display
+
+ORDER BY → sort the results
+
+LIMIT / OFFSET → return a subset
