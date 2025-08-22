@@ -3,11 +3,12 @@ import * as fs from "node:fs";
 
 async function main() {
 
-    const ai = new GoogleGenAI({ apiKey: "AIzaSyCLferB1sy4g9fC-6UiXJjbaKzEhKDA5ZI" });
+    const ai = new GoogleGenAI({ apiKey: "AIzaSyD7QENhkvimItUW40tpPXo7I0dUabCe__s" });
 
-    const dishname = "chocolate cake";
+    const dishname = "chicken";
     const contents =
-        ` generate an vibrent colorful image of ${dishname} and Give me a detailed step-by-step recipe for ${dishname} in html all text should be in html format and donot add (##, **, \`\` these characters in the text reponse) strict format should be:  <body>
+        ` generate an vibrent colorful image of ${dishname} and Give me a detailed step-by-step recipe for ${dishname} in html all text should be in html format and donot add (##, **, \`\` these characters in the text reponse) strict format should be:  
+  <body>
   <h1>Paneer Butter Masala</h1>
   <p>A rich and creamy Indian curry made with paneer (Indian cheese), tomatoes, butter, and a blend of aromatic spices.</p>
 
