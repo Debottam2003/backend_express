@@ -1,0 +1,25 @@
+The journey of a request from a web browser to a web server using HTTP over TCP involves several steps:
+1. DNS Resolution: When a user enters a URL in the web browser, the browser first needs to resolve the domain name (e.g., www.example.com) to an IP address. This is done through a DNS (Domain Name System) query.
+2. Establishing a TCP Connection: Once the IP address is obtained, the browser initiates a TCP connection to the web server using the IP address and the port number (usually port 80 for HTTP or port 443 for HTTPS). This involves a three-way handshake:
+   - The client sends a SYN (synchronize) packet to the server.
+   - The server responds with a SYN-ACK (synchronize-acknowledge) packet.
+   - The client sends an ACK (acknowledge) packet back to the server, establishing the connection.
+3. Sending the HTTP Request: After the TCP connection is established, the browser sends an HTTP request to the server. This request includes:
+   - The request line (e.g., GET /index.html HTTP/1.1)
+    - Headers (e.g., Host, User-Agent, Accept)
+    - An optional body (for POST requests)
+4. Server Processing: The web server receives the HTTP request, processes it, and prepares an HTTP response. This may involve retrieving resources, querying databases, or executing server-side scripts.
+5. Sending the HTTP Response: The server sends the HTTP response back to the client over the established TCP connection. The response includes:
+   - The status line (e.g., HTTP/1.1 200 OK)
+   - Headers (e.g., Content-Type, Content-Length)
+   - The body (the requested resource, such as an HTML page, image, etc.)
+
+*** accept -> read -> decrypt -> parse -> decode -> process -> encode -> encrypt -> write -> send
+6. Receiving the Response: The browser receives the HTTP response and processes it. This may involve rendering HTML, executing JavaScript, and displaying images or other media.
+7. Closing the TCP Connection: After the response is fully received and processed, the TCP connection may be closed. This can be done using a four-way handshake:
+   - The client sends a FIN (finish) packet to the server.
+   - The server responds with an ACK packet.
+   - The server then sends its own FIN packet.
+   - The client responds with an ACK packet, closing the connection.
+
+accept queue, write queue
