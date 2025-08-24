@@ -14,6 +14,7 @@ app.get('/', async (req, res) => {
     try {
         let { rows } = await pool.query('SELECT * FROM authors');
         res.status(200).json(rows);
+        console.log("response send successfully");
     } catch (error) {
         console.error('Error executing query', error.stack);
         res.status(500).send('Internal Server Error');
