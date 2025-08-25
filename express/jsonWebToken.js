@@ -3,9 +3,9 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
-let secretKey = "This is a secret key";
+let secretKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZXhhbXBsZSIsImlhdCI6MTc1NjEwNTg4NCwiZXhwIjoxNzU2MTA5NDg0fQ.yStA7RDjfm0C_0qbYXo6PwiTupt-sG9zn4v8uk5vtFM";
 
-let token = jwt.sign({ data: 'example' }, secretKey, { expiresIn: '1h' });
+let token = jwt.sign({ email: 'debottam@gmail.com' }, secretKey, { expiresIn: '1h' });
 console.log("Generated Token:", token);
 
 let decodedToken = jwt.verify(token, secretKey);
@@ -18,7 +18,8 @@ function verifier(req, res, next) {
         req.user = decodedToken;
         next();
     } catch (err) {
-        next(err);
+        // next(err);
+        res.status(404).send("404 Not found / Login or register first to get this page");
     }
 }
 
