@@ -1,0 +1,53 @@
+import { useEffect, useState, useRef } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+
+function IndiviualRecipe() {
+  const { rid } = useParams();
+  //   let [recipeName, setName] = useState("DishName");
+  let [recipeImage, setImage] = useState("");
+  let recipeRef = useRef();
+  useEffect(() => {
+    async function getRecipe() {
+      try {
+        let response = await axios.get(
+          `https://healthyfy-1.onrender.com/healthyfy/recipe/${rid}`
+        );
+        console.log(response.statusText === "OK");
+        let { imageurl, recipe } = response.data;
+        //   setName(name);
+        setImage(imageurl);
+        recipeRef.current.innerHTML = recipe;
+      } catch (err) {
+        if (err.response) {
+          console.log(err.response.statusText);
+          console.log(err.response.data.message);
+        } else {
+          console.log(err.message);
+        }
+      }
+    }
+    getRecipe();
+  }, []);
+  return (
+    <div
+      style={{
+        padding: "2rem",
+        justifyContent: "center",
+        display: "flex",
+        flexDirection: "row",
+        gap: "20px",
+      }}
+    >
+      {/* <h1>{recipeName}</h1> */}
+      <div className="recipe-body" ref={recipeRef}></div>
+      <img
+        src={recipeImage}
+        alt="Picture"
+        style={{ width: "500px", height: "350px" }}
+      />
+    </div>
+  );
+}
+
+export default IndiviualRecipe;
