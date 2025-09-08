@@ -10,6 +10,6 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "chatujs": "^1.0.5"
+    "chatujs": "^1.1.1"
   }
 }
