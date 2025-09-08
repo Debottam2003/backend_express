@@ -1,8 +1,8 @@
-import chatuTeam from "chatujs";
+import chatuTeam, { randomChoice } from "chatujs";
 
 console.log(chatuTeam[0]);
 console.log(chatuTeam[1]);
 console.log(chatuTeam[2]);
 
-const randomMember = chatuTeam[Math.floor(Math.random() * chatuTeam.length)];
+const randomMember = randomChoice(chatuTeam);
 console.log(`Today's lucky star is ✨ ${randomMember}`);
