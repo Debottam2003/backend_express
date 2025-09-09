@@ -1,0 +1,146 @@
+Great question 👍 You’re basically asking: when you type google.com into your browser, how do IP addresses and MAC addresses come into play in the request–response journey? Let’s break it down step by step.
+
+1. Before the HTTP request: DNS Resolution
+
+When you type google.com:
+
+Your browser asks the DNS resolver (often your ISP’s DNS or 8.8.8.8) for the IP address of google.com.
+
+This query and response already involve IP + MAC addresses, but at the DNS level.
+
+Sender IP (you): your computer’s private IP (e.g., 192.168.1.5).
+
+Receiver IP (DNS resolver): e.g., 8.8.8.8.
+
+Sender MAC: your network interface card (NIC) MAC (e.g., AA:BB:CC:DD:EE:FF).
+
+Receiver MAC: your gateway/router’s MAC on your LAN.
+(MAC addresses never travel across the internet, only within the local network segment.)
+
+The DNS response gives you an IP for google.com, like 142.250.72.238.
+
+2. Sending the HTTP/HTTPS Request
+
+Now your browser prepares to connect to Google’s server.
+
+Sender IP: your public IP (NATed by your router if you’re behind one).
+Example: 203.0.113.25 (your ISP’s assigned IP).
+
+Receiver IP: the resolved Google server IP (142.250.72.238).
+
+On the first hop (from your PC to your router):
+
+Sender MAC: your NIC’s MAC.
+
+Receiver MAC: router’s MAC.
+
+When the packet leaves your router to the ISP:
+
+Router swaps the source IP (your private IP → public IP).
+
+MAC is changed again: Sender MAC = router’s WAN interface, Receiver MAC = next ISP router.
+
+👉 At every hop (router-to-router across the internet):
+
+IP addresses remain the same (source = your public IP, dest = Google’s IP).
+
+MAC addresses change (they are only meaningful within the local link).
+
+3. At Google’s Data Center
+
+When your packet finally arrives at Google’s edge server:
+
+Sender IP = your public IP.
+
+Receiver IP = Google’s server IP.
+
+Locally inside their data center, the packet is delivered to the right server using Google’s internal MAC addresses.
+
+4. The Response (from Google back to you)
+
+Google replies with an HTTP(S) response.
+
+Sender IP = Google’s IP.
+
+Receiver IP = your public IP.
+
+On each network segment back:
+
+MAC addresses are swapped per hop (Google’s router → upstream router → ISP → your home router → your PC).
+
+When it finally reaches your LAN:
+
+Sender MAC = router’s MAC (LAN side).
+
+Receiver MAC = your NIC MAC.
+
+Your browser then receives the response and renders the page.
+
+IP & MAC Journey: Request and Response when accessing google.com
+
+------------------------------------------------------------
+1. DNS Resolution (not shown in diagram)
+- Src IP: 192.168.1.5 (private)
+- Dst IP: 8.8.8.8 (DNS)
+- Src MAC: PC
+- Dst MAC: Router
+=> Response gives IP for google.com (e.g., 142.250.72.238)
+
+------------------------------------------------------------
+REQUEST PATH (Your PC → Google)
+------------------------------------------------------------
+1. Your PC → Router (LAN)
+- Src IP: 192.168.1.5 (private)
+- Dst IP: 142.250.72.238 (Google)
+- Src MAC: PC
+- Dst MAC: Router
+
+2. Router → ISP
+- Src IP: 203.0.113.25 (public, after NAT)
+- Dst IP: 142.250.72.238
+- Src MAC: Router
+- Dst MAC: Next ISP Router
+
+3. ISP → Internet Routers (multiple hops)
+- Src IP: 203.0.113.25
+- Dst IP: 142.250.72.238
+- Src MAC: changes per hop
+- Dst MAC: changes per hop
+
+4. Internet → Google Server
+- Src IP: 203.0.113.25
+- Dst IP: 142.250.72.238
+- Src MAC: Last Router
+- Dst MAC: Google Server
+
+------------------------------------------------------------
+RESPONSE PATH (Google → Your PC)
+------------------------------------------------------------
+5. Google Server → Internet
+- Src IP: 142.250.72.238 (Google)
+- Dst IP: 203.0.113.25 (your public)
+- Src MAC: Google Server
+- Dst MAC: First Router
+
+6. Internet Routers → ISP
+- Src IP: 142.250.72.238
+- Dst IP: 203.0.113.25
+- Src MAC/Dst MAC: change per hop
+
+7. ISP → Your Router
+- Src IP: 142.250.72.238
+- Dst IP: 203.0.113.25
+- Src MAC: ISP Router
+- Dst MAC: Home Router
+
+8. Router → Your PC (LAN)
+- Src IP: 142.250.72.238
+- Dst IP: 192.168.1.5 (private, after NAT translation)
+- Src MAC: Router
+- Dst MAC: PC
+
+------------------------------------------------------------
+KEY POINTS
+- IP addresses stay constant end-to-end (except NAT translation at your router).
+- MAC addresses only matter inside a local segment and change at every hop.
+- Your router bridges your private LAN (private IP + LAN MAC) with the internet (public IP + per-hop MAC).
