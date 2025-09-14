@@ -4,7 +4,7 @@
     "": {
       "name": "test",
       "dependencies": {
-        "chatujs": "^1.1.5",
+        "chatujs": "^1.2.0",
       },
       "devDependencies": {
         "@types/bun": "latest",
@@ -23,7 +23,7 @@
 
     "bun-types": ["bun-types@1.2.21", "", { "dependencies": { "@types/node": "*" }, "peerDependencies": { "@types/react": "^19" } }, "sha512-sa2Tj77Ijc/NTLS0/Odjq/qngmEPZfbfnOERi0KRUYhT9R8M4VBioWVmMWE5GrYbKMc+5lVybXygLdibHaqVqw=="],
 
-    "chatujs": ["chatujs@1.1.5", "", {}, "sha512-EAD6LTnME0eXnUdToYx0700uIJU3WkW19QEl6SzeWmSiFqQWzElISqTFoMbeY3SVlZpRpi62PQjFsAgwJGODQQ=="],
+    "chatujs": ["chatujs@1.2.0", "", {}, "sha512-785tZoyKK3v/6n8Hy2Wz/xcVN7s16RtB4JOpyyqDlvHkEYBVGuWhkESTASWU2MzW3H602nUVYijblww16z9H6Q=="],
 
     "csstype": ["csstype@3.1.3", "", {}, "sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw=="],
 
