@@ -1,0 +1,138 @@
+
+# WebRTC: STUN, TURN, NAT, SDP, and ICE — Detailed Summary Notes
+
+## 1. Overview
+WebRTC (Web Real-Time Communication) allows real-time audio, video, and data transmission between browsers or devices directly (peer-to-peer), without requiring an intermediary for media flow. However, to achieve this, WebRTC must deal with NATs and firewalls.
+
+Key components:
+- **STUN (Session Traversal Utilities for NAT)** — discovers the public IP and port of a client.
+- **TURN (Traversal Using Relays around NAT)** — relays media when direct P2P fails.
+- **ICE (Interactive Connectivity Establishment)** — coordinates candidate gathering and connectivity tests.
+- **SDP (Session Description Protocol)** — describes what each peer can send/receive.
+- **NAT (Network Address Translation)** — maps private IPs to public IPs for internet access.
+
+---
+
+## 2. NAT Behavior and Port Mapping
+A NAT maps each internal device’s private IP:port to a public IP:port.  
+Example mapping table:
+| Private IP:Port | Public IP:Port | Destination |
+|-----------------|----------------|--------------|
+| 192.168.1.10:5000 | 203.0.113.25:53001 | 8.8.8.8:53 |
+| 192.168.1.11:5000 | 203.0.113.25:53002 | 8.8.8.8:53 |
+
+The **public port** uniquely identifies the internal connection. Return traffic is routed using this mapping, ensuring packets reach the right private device.
+
+### NAT Table Logic
+Each mapping includes protocol, private/public addresses, destination, and expiration time.  
+Responses arriving at `203.0.113.25:53002` are forwarded to the corresponding internal device (e.g., `192.168.1.11:5000`).
+
+---
+
+## 3. Types of NATs
+| NAT Type | Description | STUN/Direct Works? |
+|-----------|--------------|--------------------|
+| **Full Cone** | Any external host can reply once mapping exists. | ✅ Yes |
+| **Restricted Cone** | Only same IP can reply. | ⚠️ Sometimes |
+| **Port-Restricted Cone** | Only same IP and port can reply. | ⚠️ Sometimes |
+| **Symmetric NAT** | Each destination gets a unique mapping. | ❌ No |
+
+Most home and mobile networks use **Full** or **Restricted Cone NATs** (less strict), while corporate networks often use **Symmetric NATs** (strict).
+
+---
+
+## 4. STUN and TURN
+- **STUN:** Client sends request to a STUN server → learns public IP and port → shares via ICE as “server reflexive candidate.”  
+- **TURN:** Used only when direct connection fails. Media/data is relayed through the TURN server.
+
+| Feature | STUN | TURN |
+|----------|------|------|
+| Purpose | Discover public IP | Relay traffic |
+| Media Path | Direct (P2P) | Through server |
+| Bandwidth | Minimal | High |
+| Latency | Low | Higher |
+| Reliability | Limited | Always works |
+
+In real-world usage, **STUN is used in ~80–90%** of connections, while **TURN** handles **10–20%** as fallback.
+
+---
+
+## 5. ICE — Interactive Connectivity Establishment
+ICE gathers all possible connection candidates and tests them. It selects the best working path.
+
+### Candidate Types
+| Type | Discovered By | Description |
+|-------|----------------|-------------|
+| **host** | Local interfaces | Local IPs |
+| **srflx** | STUN | Public IP mapping |
+| **relay** | TURN | Relayed through TURN server |
+
+Steps:
+1. Gather candidates via STUN/TURN.
+2. Exchange candidates via signaling.
+3. Perform connectivity checks (STUN pings).
+4. Select best working pair (lowest latency).
+
+---
+
+## 6. SDP — Session Description Protocol
+SDP describes what each peer can send/receive. It includes codec info, ICE credentials, and network candidates.
+
+### Example SDP Offer
+```
+v=0
+o=- 46117327 2 IN IP4 127.0.0.1
+s=-
+m=audio 9 UDP/TLS/RTP/SAVPF 111
+a=rtpmap:111 opus/48000/2
+a=ice-ufrag:abc123
+a=ice-pwd:def456
+a=candidate:1 1 udp 2122252543 192.168.1.10 55555 typ host
+a=candidate:2 1 udp 1686052607 203.0.113.25 53001 typ srflx
+```
+
+### SDP Flow
+1. Peer A → creates SDP offer → sends via signaling.
+2. Peer B → responds with SDP answer.
+3. ICE → tests and finalizes connection.
+
+---
+
+## 7. Connection Path Selection (STUN vs TURN)
+| Environment | Likely Path | Description |
+|--------------|-------------|--------------|
+| Home Wi-Fi | STUN (Direct) | Low latency |
+| Mobile | STUN | Often direct |
+| Corporate Network | TURN (Relay) | Strict NATs |
+| Public Wi-Fi | TURN | Moderate strictness |
+
+**ICE preference order:** host → srflx → relay.
+
+---
+
+## 8. NAT Strictness Summary
+“Normal” home NATs are **friendly**, often Full/Restricted Cone types that allow direct peer-to-peer.  
+**Strict NATs** (Symmetric) are used in enterprises or ISPs; these block STUN-based connections, forcing TURN fallback.
+
+| Environment | NAT Type | Strictness | WebRTC Result |
+|--------------|-----------|-------------|----------------|
+| Home Wi-Fi | Full/Restricted Cone | Low | Direct (STUN) |
+| Mobile | Restricted Cone | Medium | Often direct |
+| Corporate | Symmetric | High | TURN relay |
+| Public Wi-Fi | Mixed | Medium | Sometimes TURN |
+
+---
+
+## 9. Summary
+- **STUN** discovers your public address.  
+- **TURN** relays media when P2P fails.  
+- **ICE** coordinates and selects the best path.  
+- **SDP** describes the session (codecs, ICE, encryption).  
+- **NAT** maps internal addresses and ports to public ones.  
+- **Public ports** are the key identifiers enabling correct routing.  
+- **Most connections are direct (STUN),** while **TURN** ensures reliability in restrictive environments.
+
+---
+
+### 💡 In One Sentence
+> WebRTC uses SDP to describe sessions, ICE to find paths, STUN to learn public IPs, and TURN to guarantee connectivity when NATs or firewalls prevent direct peer-to-peer communication.
