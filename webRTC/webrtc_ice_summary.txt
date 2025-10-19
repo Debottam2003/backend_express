@@ -1,0 +1,25 @@
+In WebRTC, each peer finds its own network routes (ICE candidates) after setting the local description. 
+To connect, both peers must exchange these candidates.
+
+The lines:
+localConnection.onicecandidate = (e) => {
+  if (e.candidate) remoteConnection.addIceCandidate(e.candidate);
+};
+remoteConnection.onicecandidate = (e) => {
+  if (e.candidate) localConnection.addIceCandidate(e.candidate);
+};
+simply simulate the signaling process, letting each peer share its ICE candidates with the other.
+
+Without this exchange, the peers know what to send (from offer/answer) but not how to reach each other, so the connection fails.
+
+🔹 What happens without those lines:
+
+If you remove them:
+
+- Each peer will still gather its own ICE candidates (onicecandidate fires).
+- But none of those candidates reach the other peer.
+- Result:
+  - The SDP offer/answer exchange succeeds.
+  - The peers know what to send (video, audio, data).
+  - But they don’t know how to connect, so the connection stays in iceConnectionState: "checking" or "failed".
+  - ❌ No media or data will flow.

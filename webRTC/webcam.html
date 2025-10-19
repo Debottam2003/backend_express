@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebRTC Local Demo</title>
+    <style>
+      /* CSS Variables for consistent theming */
+      :root {
+        --bg-primary: #111;
+        --bg-secondary: rgba(255, 255, 255, 0.05);
+        --text-primary: #fff;
+        --accent-primary: #1e88e5;
+        --accent-hover: #42a5f5;
+        --border-radius: 8px;
+        --transition-fast: 0.3s ease;
+        --transition-medium: 0.4s ease;
+      }
+
+      /* Reset and base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        height: 100vh;
+        font-family: system-ui, -apple-system, sans-serif;
+        line-height: 1.5;
+      }
+
+      /* Container styles */
+      .video-container {
+        text-align: center;
+        width: 45%;
+        max-width: 600px;
+      }
+
+      /* Video element styles */
+      .video-element {
+        width: 100%;
+        height: auto;
+        background: #000;
+        border-radius: var(--border-radius);
+        opacity: 0.8;
+        transition: opacity var(--transition-medium),
+          transform var(--transition-fast);
+        aspect-ratio: 16/9;
+        object-fit: cover;
+      }
+
+      .video-element:hover {
+        opacity: 1;
+        transform: scale(1.02);
+      }
+
+      /* Form elements */
+      .input-field {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 6px;
+        margin-top: 10px;
+        width: 60%;
+        max-width: 300px;
+        outline: none;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-primary);
+        font-size: 14px;
+      }
+
+      .input-field::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .btn {
+        background: var(--accent-primary);
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        margin-top: 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color var(--transition-fast),
+          opacity var(--transition-fast);
+        font-size: 14px;
+        font-weight: 500;
+        min-width: 100px;
+      }
+
+      .btn:hover {
+        background: var(--accent-hover);
+        opacity: 0.9;
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      /* Message area styles */
+      .message-area {
+        min-height: 60px;
+        max-height: 120px;
+        padding: 12px;
+        margin-top: 12px;
+        background: var(--bg-secondary);
+        border-radius: var(--border-radius);
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent-primary) transparent;
+      }
+
+      .message-area::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .message-area::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .message-area::-webkit-scrollbar-thumb {
+        background: var(--accent-primary);
+        border-radius: 3px;
+      }
+
+      .message-area::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-hover);
+      }
+
+      .message-text {
+        margin: 6px 0;
+        opacity: 0;
+        animation: fadeInUp 0.4s forwards;
+        word-wrap: break-word;
+        padding: 4px 0;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        body {
+          flex-direction: column;
+          height: auto;
+          padding: 20px;
+          gap: 15px;
+        }
+
+        .video-container {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .input-field {
+          width: 80%;
+        }
+
+        .video-element:hover {
+          transform: none;
+        }
+      }
+
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        .video-element,
+        .btn,
+        .message-text {
+          transition: none;
+          animation: none;
+        }
+
+        .video-element:hover {
+          transform: none;
+        }
+      }
+
+      /* Focus styles for accessibility */
+      .btn:focus-visible,
+      .input-field:focus-visible {
+        outline: 2px solid var(--accent-primary);
+        outline-offset: 2px;
+      }
+
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        :root {
+          --bg-secondary: rgba(255, 255, 255, 0.15);
+        }
+
+        .video-element {
+          border: 1px solid var(--text-primary);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="video-container">
+      <video
+        id="localVideo"
+        class="video-element"
+        autoplay
+        playsinline
+        controls
+        muted
+      ></video>
+      <div id="a" class="message-area"></div>
+      <input
+        type="text"
+        id="message-a"
+        class="input-field"
+        placeholder="Type message..."
+      />
+      <button class="btn">Message A</button>
+    </div>
+    <div class="video-container">
+      <video
+        id="remoteVideo"
+        class="video-element"
+        autoplay
+        playsinline
+        controls
+      ></video>
+      <div id="b" class="message-area"></div>
+      <input
+        type="text"
+        id="message-b"
+        class="input-field"
+        placeholder="Type message..."
+      />
+      <button class="btn">Message B</button>
+    </div>
+
+    <script>
+      async function startWebRTC() {
+        const localVideo = document.getElementById("localVideo");
+        const remoteVideo = document.getElementById("remoteVideo");
+        const message_a = document.getElementById("message-a");
+        const message_b = document.getElementById("message-b");
+        const btn_a = document.querySelectorAll("button")[0];
+        const btn_b = document.querySelectorAll("button")[1];
+
+        const messageAreaA = document.getElementById("a");
+        const messageAreaB = document.getElementById("b");
+
+        const localConnection = new RTCPeerConnection();
+        const remoteConnection = new RTCPeerConnection();
+
+        // Create data channel
+        const dc = localConnection.createDataChannel("channel");
+        dc.onmessage = (e) => {
+          const newMessage = document.createElement("p");
+          newMessage.textContent = e.data;
+          messageAreaA.appendChild(newMessage);
+        };
+        btn_a.onclick = () => {
+          const message = message_a.value;
+          message_a.value = "";
+          if (message !== "") dc.send(message);
+        };
+
+        remoteConnection.ondatachannel = (event) => {
+          remoteConnection.dc = event.channel;
+          remoteConnection.dc.onmessage = (e) => {
+            const newMessage = document.createElement("p");
+            newMessage.textContent = e.data;
+            messageAreaB.appendChild(newMessage);
+          };
+        };
+        btn_b.onclick = () => {
+          const message = message_b.value;
+          message_b.value = "";
+          if (message !== "") remoteConnection.dc.send(message);
+        };
+
+        // Display remote stream
+        remoteConnection.ontrack = (event) => {
+          remoteVideo.srcObject = event.streams[0];
+        };
+
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+        });
+        localVideo.srcObject = stream;
+        const track = stream.getVideoTracks()[0];
+        localConnection.addTrack(track, stream);
+
+        localConnection.onicecandidate = (e) => {
+          if (e.candidate) {
+            console.log("New ICE candidate!", JSON.stringify(e.candidate));
+            remoteConnection.addIceCandidate(e.candidate);
+          }
+        };
+        remoteConnection.onicecandidate = (e) => {
+          if (e.candidate) localConnection.addIceCandidate(e.candidate);
+        };
+
+        const offer = await localConnection.createOffer();
+        await localConnection.setLocalDescription(offer);
+        await remoteConnection.setRemoteDescription(offer);
+
+        const answer = await remoteConnection.createAnswer();
+        await remoteConnection.setLocalDescription(answer);
+        await localConnection.setRemoteDescription(answer);
+      }
+
+      startWebRTC().catch(console.error);
+    </script>
+  </body>
+</html>
