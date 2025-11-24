@@ -1,0 +1,4 @@
+Host machine and Virtual machine both have its own network address space both uses 
+(Network Address Translation)NAT and both have its own private ip and manages its
+own port mapping.
+Localhost is only bounded in its own os and it is called loop back address.
