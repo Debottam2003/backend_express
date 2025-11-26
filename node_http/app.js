@@ -1,8 +1,10 @@
-import express from "./express.js";
+import okudera from "./express.js";
 
-const app = express();
+const app = okudera();
 
-console.log(app);
+// console.log(app);
+
+app.use(okudera.json());
 
 app.use((req, res) => {
     req.date = new Date().toLocaleString();
@@ -25,6 +27,10 @@ app.get("/home", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
+    let { username, password } = req.body;
+    console.log("username:", username);
+    console.log("password:", password);
+    console.log("request body:", req.body);
     res.setHeader("Content-Type", "text/html");
     res.end("hello world");
 });
