@@ -1,0 +1,11 @@
+General Priority Order (common in Express, Node servers, Go servers, etc.)
+1️⃣ First: Check if any handler (route) matches the request path
+
+If a custom route/handler exists (e.g., / or /about), the server will use that handler and static middleware will NOT run afterward.
+
+2️⃣ If no handler matches: Check static files
+
+The server looks inside the static/public directory.
+If the requested path matches a file name, that file is returned.
+
+3️⃣ If still nothing: return 404
