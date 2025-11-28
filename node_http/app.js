@@ -7,7 +7,7 @@ const app = okudera();
 app.use(okudera.json());
 
 app.use((req, res) => {
-    req.date = new Date().toLocaleString();
+    req.date = new Date().toLocaleString("en-IN");
     console.log("first middleware called");
 });
 
