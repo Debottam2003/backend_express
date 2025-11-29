@@ -2,48 +2,50 @@
 import http from "http";
 
 function okudera() {
-    let app = {
-        getMethodHandlersMap: {},
-        postMethodHandlersMap: {},
-        putMethodHandlersMap: {},
-        patchMethodHandlersMap: {},
-        deleteMethodHandlersMap: {},
-        middlewares: [],
-        get(routname, handler) {
-            this.getMethodHandlersMap[routname] = handler;
-        },
-        post(routname, handler) {
-            this.postMethodHandlersMap[routname] = handler;
-        },
-        use(handler) {
-            this.middlewares.push(handler);
-        },
-        listen(port, handler) {
-            handler();
-            const server = http.createServer(async (req, res) => {
-                for (let i of this.middlewares) {
-                    await i(req, res);
-                }
-                if (req.method === "GET") {
-                    if (this.getMethodHandlersMap[req.url]) {
-                        this.getMethodHandlersMap[req.url](req, res);
-                    }
-                    else {
-                        res.end("404 not found");
-                    }
-                }
-                else if (req.method === "POST") {
-                    if (this.postMethodHandlersMap[req.url]) {
-                        this.postMethodHandlersMap[req.url](req, res);
-                    }
-                    else {
-                        res.end("404 not found");
-                    }
-                }
-            });
-            server.listen(port);
+
+    let app = async function (req, res) {
+        for (let i of app.middlewares) {
+            await i(req, res);
         }
-    };
+        if (req.method === "GET") {
+            if (app.getMethodHandlersMap[req.url]) {
+                app.getMethodHandlersMap[req.url](req, res);
+            }
+            else {
+                res.end("404 not found");
+            }
+        }
+        else if (req.method === "POST") {
+            if (app.postMethodHandlersMap[req.url]) {
+                app.postMethodHandlersMap[req.url](req, res);
+            }
+            else {
+                res.end("404 not found");
+            }
+        }
+    }
+
+    app.getMethodHandlersMap = {};
+    app.postMethodHandlersMap = {};
+    app.putMethodHandlersMap = {};
+    app.patchMethodHandlersMap = {};
+    app.deleteMethodHandlersMap = {};
+    app.middlewares = [];
+
+    app.get = function (routname, handler) {
+        this.getMethodHandlersMap[routname] = handler;
+    }
+    app.post = function (routname, handler) {
+        this.postMethodHandlersMap[routname] = handler;
+    }
+    app.use = function (handler) {
+        this.middlewares.push(handler);
+    }
+    app.listen = function (port, handler) {
+        const server = http.createServer(app);
+        server.listen(port, handler);
+    }
+
     return app;
 }
 
