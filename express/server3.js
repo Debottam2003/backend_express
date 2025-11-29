@@ -1,8 +1,10 @@
-import express from 'express';
-import pool from './postgresql/db.js'
+import express, { Router } from 'express';
+//import pool from './postgresql/db.js'
 
 const app = express();
 const port = 3335;
+
+console.log(Router());
 
 // Middleware to parse JSON and URL-encoded bodies
 app.use(express.json()); // for parsing application/json
