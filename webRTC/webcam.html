@@ -320,6 +320,9 @@
       }
 
       startWebRTC().catch(console.error);
+      // When the local peer creates a DataChannel, that information is included in the offer.
+      // The remote peer reads the offer and sees datachannel info and fires ondatachannel (datachannel
+      // event), creating the remote side of the channel.
     </script>
   </body>
 </html>
