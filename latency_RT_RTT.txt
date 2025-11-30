@@ -1,0 +1,37 @@
+Response Time(RT):
+------------------
+Response time is the total time from when you send a request until the entire response is received.
+
+It includes:
+Network latency (client → server)
+Server processing time
+Network latency (server → client)
+Any overhead in betweeen
+
+Example:
+Request latency: 20 ms
+Server processing: 50 ms
+Response transfer: 20 ms
+→ Response time = 90 ms
+
+Latency: 
+--------
+Time taken by a message(request) to reach the server.
+Network latency (client → server)
+Example:
+You send a small packet to a server. It takes 20 ms before the server receives it.
+→ Latency = 20 ms.
+
+Round Trip Time(RTT):
+---------------------
+RTT measure how long it takes for a packect to reach destination and come back.
+RTT ≈ latency × 2, but can be affected by routing differences.
+
+Used in TCP handshakes and ping measurements.
+
+Example:
+You run ping:
+→ RTT = 42 ms
+
+PING measures RTT.
+Network latency (client → server) + Network latency (server → client)
