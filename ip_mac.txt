@@ -1,0 +1,42 @@
+✅ 1. IP addresses (SIP & DIP) stay the same end-to-end
+
+During communication between two hosts (e.g., client ↔ server):
+
+Source IP (SIP): stays the same.
+
+Destination IP (DIP): stays the same.
+
+Even when packets pass through routers, IP addresses do NOT change (except when NAT is used 
+means in private ip to public ip mapping).
+
+🔄 2. MAC addresses change at every hop
+
+MAC addresses(Physical Address) are layer-2 (L2) addresses.
+Every time a packet crosses a router, the source and destination MAC addresses are rewritten:
+
+On each link, the router’s interface MAC becomes the new source MAC.
+
+The next-hop device’s MAC becomes the new destination MAC.
+
+Example path:
+
+Client → Router → Router → Server
+
+At each hop:
+
+| Hop              | Source MAC  | Destination MAC |
+|------------------|-------------|-----------------|
+| Client → Router1 | Client MAC  | Router1 MAC     |
+| Router1 → Router2| Router1 MAC | Router2 MAC     |
+| Router2 → Server | Router2 MAC | Server MAC      |
+
+Only the MAC changes; the IPs stay the same.
+
+🔁 3. Response direction
+
+MAC addresses change hop-by-hop again.
+
+| Layer | Changes?            | Explanation                     |
+|-------|---------------------|---------------------------------|
+| IP    | ❌ No (end-to-end)  | SIP and DIP stay constant       |
+| MAC   | ✅ Yes (every hop)  | Rewritten by each router        |
