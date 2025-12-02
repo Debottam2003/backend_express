@@ -1,0 +1,6 @@
+| Component         | Typical Access Time | Unit   |
+| ----------------- | ------------------- | ------ |
+| CPU cache         | ~1–20 ns            |   ns   |
+| RAM (main memory) | ~50–150 ns          |   ns   |
+| SSD               | ~50–200 µs          |   µs   |
+| HDD               | ~3–15 ms            |   ms   |
