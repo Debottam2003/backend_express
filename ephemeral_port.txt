@@ -1,0 +1,148 @@
+When your browser connects to a server (even on the same machine), it uses:
+
+Server port → the known port you’re connecting to (e.g. 3333)
+
+Client port → a random, temporary port chosen by your OS
+
+This temporary port is called an:
+
+***Ephemeral port or dynamic port***
+
+----------------------------------------------------------------------------------------
+Because both sides of a TCP connection need a unique port:
+| Role             | IP        | Port       | Purpose                           |
+| ---------------- | --------- | ---------- | --------------------------------- |
+| Client (Browser) | 127.0.0.1 | e.g. 49152 | Identifies the browser connection |
+| Server           | 127.0.0.1 | 3333       | Identifies the server application |
+
+This forms a unique socket pair:
+
+Client Socket: 127.0.0.1:49152
+Server Socket: 127.0.0.1:3333
+
+📘 Full Flow: From Loading React Page → Making API Request
+
+(with TCP ports + CORS explained)
+
+When you open your browser and visit:
+
+http://127.0.0.1:5173
+
+1️⃣ Browser Loading the React App
+
+The browser contacts the React development server running at port 5173.
+
+The browser does not use port 5173 itself — it uses a random client port chosen by the OS.
+
+Example TCP connection:
+
+Client: 127.0.0.1:49190 → Server: 127.0.0.1:5173
+
+
+The server returns the HTML and JavaScript files.
+
+React app starts running inside the browser.
+
+The browser sets the origin of this webpage to:
+
+Origin = http://127.0.0.1:5173
+
+2️⃣ React Makes a Fetch Request to Backend
+
+React code runs something like:
+
+fetch("http://127.0.0.1:3333/api/data");
+
+
+Now the browser needs to contact the backend server.
+
+It opens a new TCP connection:
+
+Client: 127.0.0.1:49210 → Server: 127.0.0.1:3333
+
+
+A different random client port is used here.
+
+TCP connection and browser origin are totally separate concepts.
+
+The browser sends HTTP headers including:
+
+Host: 127.0.0.1:3333
+Origin: http://127.0.0.1:5173
+
+3️⃣ Browser Enforces CORS
+
+Because the port is different, the origin is considered different:
+
+Component	React Page	API Server
+Protocol	http	http
+Host	127.0.0.1	127.0.0.1
+Port	5173	3333
+Same Origin?	❌ No	
+
+So the browser blocks the response…
+unless the backend explicitly allows it using CORS:
+
+Access-Control-Allow-Origin: http://127.0.0.1:5173
+
+
+If allowed:
+
+The browser releases the response to React
+
+React updates the UI
+
+🧠 Key Lessons
+Concept	Meaning
+Random client ports	Used automatically for every network connection
+Origin	Browser security identity: protocol + hostname + port
+Different ports = different origin	Even on same computer
+CORS	Browser’s guardrail for cross-origin requests
+🔑 Final Summary Statement
+
+The browser uses a random TCP client port to load the React page from 5173.
+React runs in the browser and sends another request using another random port to 3333.
+The browser enforces CORS because the origins differ, so the backend must explicitly allow the frontend origin.
+
+🔢 What port range?
+
+Depends on OS, but commonly:
+
+Windows: 49152–65535
+
+Linux/macOS: ~32768–60999 (configurable)
+---------------------------------------------------------------------------------------------
+
+Every app that wants to make/receive network requests must ask the OS for a socket.
+
+The OS then:
+1️⃣ Assigns the process a file descriptor (a handle to the socket)
+2️⃣ Assigns a unique ephemeral port for outbound connections
+3️⃣ Registers the socket in the kernel's connection table
+
+So the OS knows:
+
+Socket → belongs to Process ID (PID) X
+
+Example table inside OS kernel:
+
++-----------------+------------+--------------------+-------------+
+| PID / Process   | Local Port | Remote Server      | State       |
++-----------------+------------+--------------------+-------------+
+| 4852 (Chrome)   | 49321      | 127.0.0.1:3333     | ESTABLISHED |
+| 6720 (Node.js)  | 49322      | 127.0.0.1:3333     | ESTABLISHED |
++-----------------+------------+--------------------+-------------+
+
+➡ Even though both connect to the same server port
+➡ Their ephemeral ports differ(unique)
+➡ So OS routes returning packets correctly
+
+This format clearly shows:
+
+Two separate processes (Chrome + Node.js)
+
+Two separate ephemeral (random) client ports: 49321 and 49322
+
+Same backend server 127.0.0.1:3333
+
+Each connection tracked independently by TCP & the OS
