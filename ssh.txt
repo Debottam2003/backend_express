@@ -1,0 +1,48 @@
+How SSH Authentication Works with GitHub
+
+You generate a key pair locally
+
+A private key (kept secret on your computer)
+
+A public key (shared with GitHub)
+
+You add the public key to GitHub
+
+GitHub stores it in your account, associating it with you
+
+When you run a Git command via SSH
+
+e.g. git clone git@github.com:username/repo.git
+
+GitHub challenges your local SSH client to prove identity using the private key
+
+SSH performs a secure handshake
+
+Your private key signs the authentication request
+
+GitHub verifies the signature using your public key
+
+If the keys match → Access granted
+
+No password required 🎉
+
+Communication is encrypted end-to-end
+==========================================================================
+VS Code
+-------
+You authenticate with GitHub through a web browser window
+
+GitHub issues a token
+
+Windows stores the token in Windows Credential Manager
+
+Git CLI uses that token for HTTPS-based authentication
+
+============================================================================
+How ssh works:
+Secure Shell(SSH), accessing remote server from the client system, cli based.
+1.TCP hand shake is done.A TCP 3-way handshake occurs (SYN → SYN/ACK → ACK)
+2.Both client and server authenticate each other by public-private key and challenge based auth.
+3.They exchange ephemeral key material via:
+Diffie-Hellman, Both generate the same session(symetric) key for secure data transfer
+(Random and one time only: Ephemeral symmetric session key).
