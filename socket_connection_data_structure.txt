@@ -1,0 +1,130 @@
+Client kernel socket structure (conceptual):
+struct tcp_socket {
+    // Connection identity
+    local_ip        = 10.0.0.5
+    local_port      = 52341
+    remote_ip       = 20.0.0.10
+    remote_port     = 443
+
+    // TCP state
+    state           = ESTABLISHED
+
+    // Sequence numbers
+    snd_una         = 1000      // oldest unacknowledged
+    snd_nxt         = 1500      // next byte to send
+    rcv_nxt         = 9000      // next byte expected
+
+    // Buffers
+    send_buffer     = [data...]
+    recv_buffer     = [data...]
+
+    // Flow & congestion control
+    cwnd            = 10 MSS
+    rwnd            = 64 KB
+
+    // Timers
+    retrans_timer
+    keepalive_timer
+
+    // OS integration
+    file_descriptor = 42
+    owning_process  = PID 1234
+}
+
+Client 4-tuple
+(10.0.0.5, 52341, 20.0.0.10, 443)
+
+---------------------------------------------------------------------------------------------------------------------
+
+Server-side TCP socket (accepted connection)
+⚠️ Important:
+The listening socket is not the same as the connected socket.
+
+A) Server listening socket (before accept)
+struct tcp_listen_socket {
+    local_ip        = 0.0.0.0     // or 20.0.0.10
+    local_port      = 443
+    state           = LISTEN
+
+    backlog_queue   = [...]
+    file_descriptor = 3
+}
+
+B) Server connected socket (after accept)
+
+Created when TCP handshake completes.
+
+struct tcp_socket {
+    // Connection identity
+    local_ip        = 20.0.0.10
+    local_port      = 443
+    remote_ip       = 10.0.0.5
+    remote_port     = 52341
+
+    // TCP state
+    state           = ESTABLISHED
+
+    // Sequence numbers
+    snd_una         = 9000
+    snd_nxt         = 9500
+    rcv_nxt         = 1500
+
+    // Buffers
+    send_buffer     = [data...]
+    recv_buffer     = [data...]
+
+    // Flow & congestion control
+    cwnd            = 12 MSS
+    rwnd            = 64 KB
+
+    // Timers
+    retrans_timer
+    keepalive_timer
+
+    // OS integration
+    file_descriptor = 57
+    owning_process  = PID 5678
+}
+
+Server 4-tuple
+(20.0.0.10, 443, 10.0.0.5, 52341)
+
+One important nuance (wildcards)
+
+Sometimes the socket has wildcards:
+
+Listening socket example:
+local_ip   = 0.0.0.0   (ANY)
+local_port = 443
+remote_ip  = ANY
+remote_port= ANY
+
+Only dstPort == 443 must match
+
+Used only for accepting new connections (SYN)
+
+Why both sides look “mirrored”
+
+| Client                     |          Server          |
+| ---------------------------| ------------------------ |
+| local_ip = client_ip       | local_ip = server_ip     |
+| local_port = client_port   | local_port = server_port |
+| remote_ip = server_ip      | remote_ip = client_ip    |
+| remote_port = server_port  | remote_port = client_port|
+
+Each side has its own independent TCP state machine.
+
+---------------------------------------------------------------------------------------------------------------------
+
+For an incoming TCP packet, the kernel matches like this:
+
+TCP packet: |srcIP|srcPort| | | |dstIP|dstPort|
+
+socket.local_ip   == packet.dstIP
+socket.local_port == packet.dstPort
+
+socket.remote_ip   == packet.srcIP
+socket.remote_port == packet.srcPort
+
+During the connection creation kernel hashes (local_ip, local_port, remote_ip, remote_port) this and
+during the processing of incoming TCP packet, Hash lookup on (dstIP, dstPort, srcIP, srcPort), finds exact tcp_socket.
