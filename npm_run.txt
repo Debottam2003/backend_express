@@ -1,0 +1,39 @@
+npm uses a pretty simple but clever directory walk-up rule to find package.json.
+
+The core idea
+
+When you run an npm command, npm:
+
+Starts in your current working directory
+
+Looks for package.json there
+
+If it doesn’t find one, it moves up to the parent directory
+
+Repeats this process until it reaches the filesystem root
+
+The first package.json it finds wins
+
+That file defines the “project” npm is operating on.
+
+Example
+
+If your directory tree looks like this:
+
+/Users/alex/projects/my-app/
+├─ package.json
+└─ src/
+   └─ index.js
+
+
+And you run:
+
+cd /Users/alex/projects/my-app/src
+npm install lodash
+
+
+npm checks in this order:
+
+/Users/alex/projects/my-app/src/package.json ❌
+
+/Users/alex/projects/my-app/package.json ✅ ← used
