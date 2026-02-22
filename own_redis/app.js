@@ -10,6 +10,9 @@ if (raw_data !== "") {
   db_data = JSON.parse(raw_data);
 }
 
+console.log("Welcome to own Redis");
+console.log("Available commands are: set, get, delete, getAll, exit");
+
 while (true) {
   let data = input();
   let temp = data.split(" ");
@@ -36,12 +39,25 @@ while (true) {
   } else if (temp[0].toLowerCase() === "delete") {
     if (temp.length < 2) {
       console.log("Too few arguments");
-      console.log("Format is: get name");
+      console.log("Format is: delete key");
     } else if (temp.length > 2) {
       console.log("Too many arguments");
-      console.log("Format is: get name");
+      console.log("Format is: delete key");
     } else {
-      console.log(db_data[temp[1]]);
+      delete db_data[temp[1]];
     }
+  } else if (temp[0].toLowerCase() === "getall") {
+    if (temp.length > 1) {
+      console.log("Too many arguments");
+      console.log("Format is: getAll");
+    } else {
+      console.log(db_data);
+    }
+  } else if (temp[0].toLowerCase() === "exit") {
+    fs.writeFileSync("./backup.txt", JSON.stringify(db_data, 'utf-8'));
+    break;
+  } else {
+    console.log("Invalid command");
+    console.log("Available commands are: set, get, delete, getAll, exit");
   }
 }
