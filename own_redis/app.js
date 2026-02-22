@@ -3,7 +3,7 @@ import prompt from "prompt-sync";
 
 const input = prompt();
 
-let raw_data = fs.readFileSync("./backup.txt", "utf-8");
+let raw_data = fs.readFileSync("./backup.json", "utf-8");
 let db_data = {};
 
 if (raw_data !== "") {
@@ -54,7 +54,7 @@ while (true) {
       console.log(db_data);
     }
   } else if (temp[0].toLowerCase() === "exit") {
-    fs.writeFileSync("./backup.txt", JSON.stringify(db_data, 'utf-8'));
+    fs.writeFileSync("./backup.json", JSON.stringify(db_data), 'utf-8');
     break;
   } else {
     console.log("Invalid command");
