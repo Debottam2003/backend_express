@@ -6,7 +6,6 @@ git is a software and github is a service.
 4. git status
 5. git init
 6. git config --global user.email "your-email@gmail.com"
-
 7. git config --global user.name "your-username"
 8. git add <file-name> (to stage)
 9. git add .
@@ -27,3 +26,4 @@ git is a software and github is a service.
 24. git push origin main
 25. gti pull origin main
 26. git clone https://github.com/Debottam2003/cloud
+
