@@ -1,0 +1,29 @@
+Hello this is a complete git and github course.
+git is a software and github is a service.
+1. Install git
+2. Create an account in github.
+3. git --version
+4. git status
+5. git init
+6. git config --global user.email "your-email@gmail.com"
+
+7. git config --global user.name "your-username"
+8. git add <file-name> (to stage)
+9. git add .
+10. git rm --cached <filename> (to unstage)
+11. git commit -m "message"
+12. git log
+13. git log --oneline
+14. .gitignore
+15. .gitkeep 
+16. git brunch
+17. git brunch <brunch-name>
+18. git switch <brunch-name> (newer)
+19. git switch -c <brunch-name> (newer)
+20. git checkout <branch-name> (older)
+21. git checkout -b <branch-name> (older)
+22. git merge <branch-name>
+23. git merge --abort
+24. git push origin main
+25. gti pull origin main
+26. git clone https://github.com/Debottam2003/cloud
