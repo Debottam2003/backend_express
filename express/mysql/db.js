@@ -1,4 +1,7 @@
 import pool from 'mysql2/promise';
+const cla = process.argv;
+console.log(cla);
+console.log(cla.slice(2));
 
 // const msPool = pool.createPool({
 //     host: 'localhost',
@@ -9,7 +12,7 @@ import pool from 'mysql2/promise';
 // });
 
 const msPool = pool.createPool(
-    'mysql://root:@localhost:3306/debottam',
+    'mysql://root:debottam@localhost:4000/mydb',
     {
         connectionLimit: 100
     }
