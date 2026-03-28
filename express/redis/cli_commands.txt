@@ -1,0 +1,17 @@
+PING
+-> PONG
+
+Key-Value pairs
+SET key value
+GET key
+
+Lists
+LPUSH key elements [elements...]
+RPUSH key elements [elements...]
+LRANGE key start stop
+LLEN key
+
+Objects
+HSET key feature value [featue value...]
+HGET key feature
+HGETALL key
