@@ -30,6 +30,8 @@ app.use(cors({
 const PORT = 3333;
 
 app.get('/', (req, res) => {
+    console.log('Received request from:', req.headers);
+    console.log('Cookies:', req.ip);
     if (req.cookies.testCookie) {
         console.log('Cookie found:', req.cookies.testCookie);
     } else {
