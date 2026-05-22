@@ -16,6 +16,9 @@ async function start() {
   await client.del("name");
   value = await client.get("name");
   console.log("Value:", value);
+
+  
+
   await client.quit();
 }
 

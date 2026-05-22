@@ -20,4 +20,7 @@ console.log("User Name:", userData.name);
 console.log("User Email:", userData.email);
 console.log("User Age:", Number(userData.age));
 
+let name = await redisClient.hGet("user:100", "name");
+console.log("User Name:", name);
+
 await redisClient.quit();
