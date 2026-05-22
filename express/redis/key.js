@@ -13,8 +13,9 @@ await redisClient.set("user:1", JSON.stringify({ name: "Alice", age: 22 }));
 let user = await redisClient.get("user:1");
 
 console.log(typeof user, user);
-console.log(JSON.parse(user));
-console.log(JSON.parse(user).name);
-console.log(JSON.parse(user).age);
+user = JSON.parse(user);
+console.log(user);
+console.log(user.name);
+console.log(user.age);
 
 await redisClient.quit();

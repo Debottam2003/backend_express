@@ -32,3 +32,8 @@ TTL(Time To Live)
 -----------------
 SET key value EX seconds | PX milliseconds
 ->SET name debottam EX 100
+
+In Redis, the TTL command returns:
+-2 → the key does not exist
+-1 → the key exists but has no expiration
+>= 0 → remaining time to live in seconds

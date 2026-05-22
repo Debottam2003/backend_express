@@ -15,4 +15,7 @@ await redisClient.rPush("myList", "value3");
 const listItems = await redisClient.lRange("myList", 0, -1);
 console.log("List Items:", listItems);
 
+const listLength = await redisClient.lLen("myList");
+console.log("List Length:", listLength);
+
 await redisClient.quit();
