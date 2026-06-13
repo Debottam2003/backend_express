@@ -1,0 +1,14 @@
+OAUTH
+-----
+1. OAuth2 config from google -> client ID and client secret
+2. Express server creation
+3. Create a route for the webhook endpoint
+4. Implement the logic to handle incoming webhook and api requests
+5. Postman for testing the login
+
+PAYTM
+-----
+1. Create your own small paytm server to handle the requests
+2. Create a server for the webhook endpoint and to request the paytm api
+3. Implement the logic to handle incoming webhook and api requests
+4. Postman for testing the payment
