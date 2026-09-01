@@ -1,0 +1,32 @@
+1. Core CS concepts
+2. A high-level understanding
+3. HTTP protocol
+5. Routing
+6. Serialisation and deserialisation
+7. Authentication and authorisation
+8. Validation and transformation
+9. Middlewares
+10. Request context
+11. Handlers, controllers and services
+12. CRUD deepdive
+13. RESTful architecture and best practices
+14. Databases
+15. Business logic layer (BLL)
+16. Caching
+17. Transactional emails
+18. Task queuing and scheduling
+19. Elasticsearch
+20. Error handling
+21. Config management
+22. Logging, monitoring and observability
+24. Graceful shutdown
+25. Security
+26. Scaling and performance
+27. Concurrency and parallelism
+28. Object storage and large files
+29. Real-time backend systems
+30. Testing and code quality
+34. 12 factor app
+35. OpenAPI standards
+36. Webhooks
+37. DevOps for backend engineers
